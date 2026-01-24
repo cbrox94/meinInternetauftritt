@@ -429,6 +429,149 @@
             font-style: italic;
         }
 
+        /* Hobbies Section */
+        .hobbies-section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-top: 50px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-green);
+        }
+
+        .hobbies-section-title:first-of-type {
+            margin-top: 40px;
+        }
+
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .hobbies-grid.tech-section {
+            grid-template-columns: 1fr;
+            max-width: 800px;
+        }
+
+        .hobby-card {
+            background: white;
+            border: 0.5px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+
+        .hobby-card:hover {
+            border-color: var(--primary-green);
+        }
+
+        .hobby-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .hobby-icon {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .hobby-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        .hobby-description {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .hobby-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .hobby-tag {
+            background: var(--bg-green-light);
+            color: var(--primary-green-dark);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        /* Project List - Inline */
+        .hobby-project-inline {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin: 12px 0;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .project-item {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .project-separator {
+            color: var(--primary-green);
+            font-weight: bold;
+        }
+
+        .project-more {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Sport List */
+        .hobby-card-full {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .hobby-card-full:last-child {
+            margin-bottom: 0;
+        }
+
+        .sport-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .sport-list li {
+            font-size: 1rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 10px 15px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .sport-list li:hover {
+            background: var(--bg-green-light);
+            transform: translateX(5px);
+        }
+
         /* Modal */
         .modal {
             display: none;
@@ -980,15 +1123,15 @@
                         <div class="vertical-bar-label">Data &<br>Analytics</div>
                     </div>
                     <div class="vertical-bar-item">
-                        <div class="vertical-bar-fill bar-reqeng" data-height="63.2%"></div>
+                        <div class="vertical-bar-fill bar-reqeng" data-height="90.6%"></div>
                         <div class="vertical-bar-label">Requirements<br>Engineering</div>
                     </div>
                     <div class="vertical-bar-item">
-                        <div class="vertical-bar-fill bar-pm" data-height="39.5%"></div>
+                        <div class="vertical-bar-fill bar-pm" data-height="75%"></div>
                         <div class="vertical-bar-label">Projekt-<br>management</div>
                     </div>
                     <div class="vertical-bar-item">
-                        <div class="vertical-bar-fill bar-tech" data-height="21.1%"></div>
+                        <div class="vertical-bar-fill bar-tech" data-height="43.8%"></div>
                         <div class="vertical-bar-label">Technische<br>Skills</div>
                     </div>
                 </div>
@@ -1031,6 +1174,9 @@
                             Modelling, Stakeholder Management und Workshop-Moderation in agilen Softwareprojekten.
                         </p>
                         <div class="timeline-tags">
+                            <span class="tag">Anforderungsmanagement</span>
+                            <span class="tag">Reporting</span>
+                            <span class="tag">Roadmap Planning</span>
                             <span class="tag">Power BI</span>
                             <span class="tag">BPMN 2.0</span>
                             <span class="tag">LLM-Training</span>
@@ -1257,6 +1403,7 @@
                             • Analyse der Nutzerstatistiken des Serviceportals in Matomo Analytics
                         </p>
                         <div class="timeline-tags">
+                            <span class="tag">Reporting</span>
                             <span class="tag">Matomo Analytics</span>
                             <span class="tag">MS Excel</span>
                             <span class="tag">SharePoint</span>
@@ -1309,6 +1456,72 @@
         </section>
 
         <div class="section-divider"></div>
+
+        <!-- Hobbies & Persönliches -->
+        <section class="section" id="hobbies">
+            <div class="section-header">
+                <div class="section-title">PERSÖNLICHES</div>
+                <h2 class="section-heading">Hobbies & Persönliches</h2>
+            </div>
+
+            <!-- Tech Section -->
+            <h3 class="hobbies-section-title">💻 Tech</h3>
+            
+            <div class="hobby-card-full">
+                <div class="hobby-header">
+                    <span class="hobby-icon">🏠</span>
+                    <h3 class="hobby-title">Home Lab & Self-Hosting</h3>
+                </div>
+                <p class="hobby-description">
+                    Betrieb eines Raspberry Pi Homeservers mit Docker-Containern.
+                </p>
+                <div class="hobby-tags">
+                    <span class="hobby-tag">Raspberry Pi</span>
+                    <span class="hobby-tag">Docker</span>
+                    <span class="hobby-tag">Linux</span>
+                </div>
+            </div>
+
+            <div class="hobby-card-full">
+                <div class="hobby-header">
+                    <span class="hobby-icon">🛠️</span>
+                    <h3 class="hobby-title">Anwendungsentwicklung</h3>
+                </div>
+                <p class="hobby-description">
+                    Entwicklung von Anwendungen und Tools als Hobby-Projekte
+                </p>
+                <div class="hobby-project-inline">
+                    <span class="project-item">Handball Spielbericht-Generator</span>
+                    <span class="project-separator">•</span>
+                    <span class="project-item">Diese Website</span>
+                    <span class="project-separator">•</span>
+                    <span class="project-item">Immobilien-Wirtschaftlichkeitsanalyse</span>
+                    <span class="project-separator">•</span>
+                    <span class="project-more">...</span>
+                </div>
+                <div class="hobby-tags">
+                    <span class="hobby-tag">Python</span>
+                    <span class="hobby-tag">Streamlit</span>
+                    <span class="hobby-tag">Git</span>
+                    <span class="hobby-tag">Web Development</span>
+                    <span class="hobby-tag">KI/LLMs</span>
+                </div>
+            </div>
+
+            <!-- Sport & Outdoor Section -->
+            <h3 class="hobbies-section-title">⛵ Sport & Outdoor</h3>
+            <div class="hobby-card-full">
+                <ul class="sport-list">
+                    <li>🤾 Handball</li>
+                    <li>💪 Fitnesstraining</li>
+                    <li>⛵ Segeln</li>
+                    <li>🏄 Surfen</li>
+                    <li>🥾 Wandern</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
     </div>
 
     <!-- Modal -->
@@ -1337,6 +1550,7 @@
                 category: 'Requirements Engineering & Business Analysis',
                 score: 6,
                 references: [
+                    { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 },
                     { type: 'cert', title: 'IREB CPRE Foundation Level', company: 'IREB', intensity: 3 },
                     { type: 'training', title: 'Grundlagen Requirements Engineering nach IREB-Standard', company: 'adesso', intensity: 3 }
                 ]
@@ -1344,9 +1558,9 @@
             'stakeholder': {
                 name: 'Stakeholder Management',
                 category: 'Requirements Engineering & Business Analysis',
-                score: 5,
+                score: 7,
                 references: [
-                    { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 1 },
+                    { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 },
                     { type: 'cert', title: 'IREB CPRE Foundation Level', company: 'IREB', intensity: 2 },
                     { type: 'training', title: 'Grundlagen Requirements Engineering', company: 'adesso', intensity: 2 }
                 ]
@@ -1427,9 +1641,9 @@
             'zeitreihe': {
                 name: 'Zeitreihenanalyse & Forecasting',
                 category: 'Data & Analytics',
-                score: 3,
+                score: 1,
                 references: [
-                    { type: 'edu', title: 'M.Sc. Economics - Masterarbeit', company: 'Uni Kiel', intensity: 3 }
+                    { type: 'edu', title: 'M.Sc. Economics - Masterarbeit', company: 'Uni Kiel', intensity: 1 }
                 ]
             },
             'matlab': {
@@ -1443,17 +1657,17 @@
             'regression': {
                 name: 'Regressionsanalysen',
                 category: 'Data & Analytics',
-                score: 3,
+                score: 1,
                 references: [
-                    { type: 'edu', title: 'M.Sc. Economics', company: 'Uni Kiel', intensity: 3 }
+                    { type: 'edu', title: 'M.Sc. Economics', company: 'Uni Kiel', intensity: 1 }
                 ]
             },
             'ml': {
                 name: 'Machine Learning',
                 category: 'Data & Analytics',
-                score: 2,
+                score: 1,
                 references: [
-                    { type: 'edu', title: 'M.Sc. Economics', company: 'Uni Kiel', intensity: 2 }
+                    { type: 'edu', title: 'M.Sc. Economics', company: 'Uni Kiel', intensity: 1 }
                 ]
             },
             'matomo': {
@@ -1514,6 +1728,23 @@
                     { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 }
                 ]
             },
+            'reporting': {
+                name: 'Reporting',
+                category: 'Projektmanagement & Agile Methoden',
+                score: 6,
+                references: [
+                    { type: 'job', title: 'Werkstudent - Consulting Strategie & Innovation', company: 'Dataport AöR', intensity: 3 },
+                    { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 }
+                ]
+            },
+            'roadmap': {
+                name: 'Roadmap Planning',
+                category: 'Projektmanagement & Agile Methoden',
+                score: 3,
+                references: [
+                    { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 }
+                ]
+            },
             // Technical Skills
             'prompt': {
                 name: 'Prompt Engineering',
@@ -1546,6 +1777,46 @@
                 score: 1,
                 references: [
                     { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 1 }
+                ]
+            },
+            'docker': {
+                name: 'Docker',
+                category: 'Technische Skills',
+                score: 1,
+                references: [
+                    { type: 'hobby', title: 'Home Lab & Self-Hosting', company: 'Privat', intensity: 1 }
+                ]
+            },
+            'linux': {
+                name: 'Linux',
+                category: 'Technische Skills',
+                score: 1,
+                references: [
+                    { type: 'hobby', title: 'Home Lab & Self-Hosting', company: 'Privat', intensity: 1 }
+                ]
+            },
+            'webdev': {
+                name: 'Web Development',
+                category: 'Technische Skills',
+                score: 1,
+                references: [
+                    { type: 'hobby', title: 'Anwendungsentwicklung', company: 'Privat', intensity: 1 }
+                ]
+            },
+            'git': {
+                name: 'Git',
+                category: 'Technische Skills',
+                score: 1,
+                references: [
+                    { type: 'hobby', title: 'Anwendungsentwicklung', company: 'Privat', intensity: 1 }
+                ]
+            },
+            'streamlit': {
+                name: 'Streamlit',
+                category: 'Technische Skills',
+                score: 2,
+                references: [
+                    { type: 'hobby', title: 'Anwendungsentwicklung', company: 'Privat', intensity: 2 }
                 ]
             }
         };
