@@ -311,6 +311,12 @@
             align-items: center;
             height: 100%;
             justify-content: flex-end;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .vertical-bar-item:hover {
+            transform: translateY(-5px);
         }
 
         .vertical-bar-fill {
@@ -1102,19 +1108,19 @@
 
                 <!-- Vertical Bar Chart -->
                 <div class="vertical-bars-wrapper" id="categoryBars">
-                    <div class="vertical-bar-item">
+                    <div class="vertical-bar-item" onclick="filterByCategory('data')">
                         <div class="vertical-bar-fill bar-data" data-height="100%"></div>
                         <div class="vertical-bar-label">Data &<br>Analytics</div>
                     </div>
-                    <div class="vertical-bar-item">
+                    <div class="vertical-bar-item" onclick="filterByCategory('reqeng')">
                         <div class="vertical-bar-fill bar-reqeng" data-height="90.6%"></div>
                         <div class="vertical-bar-label">Requirements<br>Engineering</div>
                     </div>
-                    <div class="vertical-bar-item">
+                    <div class="vertical-bar-item" onclick="filterByCategory('pm')">
                         <div class="vertical-bar-fill bar-pm" data-height="75%"></div>
                         <div class="vertical-bar-label">Projekt-<br>management</div>
                     </div>
-                    <div class="vertical-bar-item">
+                    <div class="vertical-bar-item" onclick="filterByCategory('tech')">
                         <div class="vertical-bar-fill bar-tech" data-height="43.8%"></div>
                         <div class="vertical-bar-label">Technische<br>Skills</div>
                     </div>
