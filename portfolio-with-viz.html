@@ -1,0 +1,2082 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christoph Bröxkes - IT Consultant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #059669;
+            --primary-green-light: #10b981;
+            --primary-green-dark: #047857;
+            --text-dark: #1f2937;
+            --text-medium: #4b5563;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-green-light: #ecfdf5;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: white;
+            color: var(--text-medium);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-bottom: 1px solid var(--border-color);
+            padding: 18px 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .navbar-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+        }
+
+        .nav-name {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        .nav-divider {
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        .nav-location {
+            color: var(--text-light);
+        }
+
+        .nav-email {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-email:hover {
+            color: var(--primary-green);
+        }
+
+        .contact-nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .contact-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-medium);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .contact-nav-item:hover {
+            color: var(--primary-green);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .social-link {
+            color: var(--text-medium);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .social-link:hover {
+            color: var(--primary-green);
+        }
+
+        .cv-download {
+            background: var(--primary-green);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .cv-download:hover {
+            background: var(--primary-green-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 90px 40px 60px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 100px;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-portrait {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 4px solid white;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-name {
+            font-size: 2.8rem;
+            font-weight: 300;
+            color: var(--text-light);
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+
+        .hero-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            line-height: 1.7;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 90px;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            margin-bottom: 8px;
+        }
+
+        .section-heading {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* About */
+        .about-content {
+            max-width: 800px;
+        }
+
+        .about-description {
+            font-size: 1rem;
+            color: var(--text-medium);
+            line-height: 1.8;
+        }
+
+        /* Skills Visualization Layout */
+        .skills-viz-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Legend */
+        .skills-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: 10px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .legend-item:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .legend-item.active {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-color: var(--primary-green);
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .legend-label {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* Vertical Bars with Category Colors */
+        .vertical-bars-wrapper {
+            display: flex;
+            gap: 30px;
+            align-items: flex-end;
+            height: 450px;
+            padding: 20px;
+            justify-content: center;
+        }
+
+        .vertical-bar-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            justify-content: flex-end;
+        }
+
+        .vertical-bar-fill {
+            width: 65px;
+            height: 0%;
+            border-radius: 8px 8px 0 0;
+            transition: height 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        /* Green Shades for Categories */
+        .bar-data {
+            background: linear-gradient(180deg, #34d399 0%, #10b981 100%);
+        }
+
+        .bar-reqeng {
+            background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+        }
+
+        .bar-pm {
+            background: linear-gradient(180deg, #059669 0%, #047857 100%);
+        }
+
+        .bar-tech {
+            background: linear-gradient(180deg, #047857 0%, #065f46 100%);
+        }
+
+        .vertical-bar-label {
+            margin-top: 12px;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.2;
+            max-width: 90px;
+        }
+
+        /* Individual Skill Bars (for filtered view) */
+        .skill-bars-wrapper {
+            display: none;
+            gap: 15px;
+            align-items: flex-end;
+            height: 450px;
+            padding: 20px;
+            justify-content: center;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        .skill-bars-wrapper.active {
+            display: flex;
+        }
+
+        /* When content overflows, align to start for better scrolling UX */
+        .skill-bars-wrapper.scrollable {
+            justify-content: flex-start;
+        }
+
+        /* Scrollbar styling */
+        .skill-bars-wrapper::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .skill-bars-wrapper::-webkit-scrollbar-track {
+            background: var(--bg-light);
+            border-radius: 4px;
+        }
+
+        .skill-bars-wrapper::-webkit-scrollbar-thumb {
+            background: var(--primary-green);
+            border-radius: 4px;
+        }
+
+        .skill-bars-wrapper::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-green-dark);
+        }
+
+        .skill-bar-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            justify-content: flex-end;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .skill-bar-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-bar-fill {
+            width: 50px;
+            height: 0%;
+            border-radius: 6px 6px 0 0;
+            transition: height 1s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .skill-bar-label {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.1;
+            max-width: 85px;
+        }
+
+        /* Skill Hint */
+        .skill-hint {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        /* Hobbies Section */
+        .hobbies-section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-top: 50px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-green);
+        }
+
+        .hobbies-section-title:first-of-type {
+            margin-top: 40px;
+        }
+
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .hobbies-grid.tech-section {
+            grid-template-columns: 1fr;
+            max-width: 800px;
+        }
+
+        .hobby-card {
+            background: white;
+            border: 0.5px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+
+        .hobby-card:hover {
+            border-color: var(--primary-green);
+        }
+
+        .hobby-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .hobby-icon {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .hobby-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        .hobby-description {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .hobby-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .hobby-tag {
+            background: var(--bg-green-light);
+            color: var(--primary-green-dark);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        /* Project List - Inline */
+        .hobby-project-inline {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin: 12px 0;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .project-item {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .project-separator {
+            color: var(--primary-green);
+            font-weight: bold;
+        }
+
+        .project-more {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Sport List */
+        .hobby-card-full {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+
+        .hobby-card-full:last-child {
+            margin-bottom: 0;
+        }
+
+        .sport-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .sport-list li {
+            font-size: 1rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 10px 15px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .sport-list li:hover {
+            background: var(--bg-green-light);
+            transform: translateX(5px);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 40px;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .modal-header {
+            margin-bottom: 25px;
+        }
+
+        .modal-skill-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .modal-learn-more {
+            display: inline-block;
+            color: var(--primary-green);
+            font-size: 0.9rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .modal-learn-more:hover {
+            color: var(--primary-green-dark);
+            text-decoration: underline;
+        }
+
+        .modal-section-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-medium);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .reference-item {
+            padding: 15px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 3px solid var(--primary-green);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .reference-item:hover {
+            background: var(--bg-green-light);
+            transform: translateX(5px);
+        }
+
+        .ref-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 3px;
+        }
+
+        .ref-company {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            margin-bottom: 8px;
+        }
+
+        .ref-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .ref-skill-tag {
+            font-size: 0.75rem;
+            color: var(--primary-green-dark);
+            background: var(--bg-green-light);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 130px 40px 1fr;
+            gap: 0;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .timeline-date {
+            text-align: right;
+            padding-right: 20px;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            padding-top: 3px;
+            font-weight: 500;
+        }
+
+        .timeline-marker {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            padding-top: 6px;
+        }
+
+        .timeline-marker::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: -50px;
+            left: 50%;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline-item:last-child .timeline-marker::before {
+            display: none;
+        }
+
+        .timeline-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary-green);
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 0 4px white, 0 0 0 6px var(--bg-green-light);
+        }
+
+        .timeline-content {
+            padding-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .timeline-company {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            margin-bottom: 12px;
+        }
+
+        .timeline-description {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .timeline-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            color: var(--primary-green-dark);
+            background: var(--bg-green-light);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* Training Table */
+        .training-table {
+            max-width: 900px;
+        }
+
+        .training-table table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .training-table thead {
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .training-table th {
+            text-align: left;
+            padding: 12px 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .training-table tbody tr {
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.2s;
+        }
+
+        .training-table tbody tr:hover {
+            background: var(--bg-light);
+        }
+
+        .training-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .training-table td {
+            padding: 14px 16px;
+            color: var(--text-medium);
+        }
+
+        .training-table td:nth-child(1) {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .training-table td:nth-child(2) {
+            color: var(--text-light);
+        }
+
+        .training-table td:nth-child(3) {
+            color: var(--text-light);
+            text-align: right;
+            font-size: 0.85rem;
+        }
+
+        /* Divider */
+        .section-divider {
+            height: 1px;
+            background: var(--border-color);
+            margin: 60px 0;
+            max-width: 900px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar-content {
+                flex-direction: column;
+                gap: 12px;
+                padding: 15px 20px;
+            }
+
+            .nav-left {
+                flex-direction: column;
+                gap: 8px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-divider {
+                display: none;
+            }
+
+            .social-links {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .container {
+                padding: 140px 20px 40px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .hero-portrait {
+                width: 150px;
+                height: 150px;
+                margin: 0 auto;
+            }
+
+            .hero-content {
+                align-items: center;
+            }
+
+            .hero-name {
+                font-size: 2rem;
+            }
+
+            .hero-title {
+                font-size: 1.4rem;
+            }
+
+            .skills-viz-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .vertical-bars-wrapper {
+                height: 300px;
+                gap: 20px;
+                padding: 15px;
+            }
+
+            .vertical-bar-fill {
+                width: 50px;
+            }
+
+            .bar-score {
+                font-size: 1rem;
+            }
+
+            .vertical-bar-label {
+                font-size: 0.75rem;
+                max-width: 70px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 90px 30px 1fr;
+            }
+
+            .timeline-date {
+                font-size: 0.75rem;
+            }
+
+            .tag-cloud {
+                gap: 8px;
+                justify-content: center;
+            }
+
+            .cloud-tag.score-high {
+                font-size: 1.1rem;
+                padding: 12px 20px;
+            }
+
+            .cloud-tag.score-medium {
+                font-size: 0.95rem;
+                padding: 10px 16px;
+            }
+
+            .cloud-tag.score-low {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+
+            .training-table {
+                overflow-x: auto;
+            }
+
+            .training-table table {
+                font-size: 0.8rem;
+            }
+
+            .training-table th,
+            .training-table td {
+                padding: 10px 12px;
+            }
+
+            .training-table td:nth-child(3) {
+                display: none;
+            }
+
+            .modal-content {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .navbar-content {
+                padding: 0 30px;
+            }
+
+            .contact-nav {
+                gap: 15px;
+            }
+
+            .social-links {
+                gap: 12px;
+            }
+
+            .skills-viz-grid {
+                grid-template-columns: 250px 1fr;
+                gap: 40px;
+            }
+
+            .vertical-bars-wrapper {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="nav-left">
+                <div class="nav-name">Christoph Bröxkes</div>
+                <div class="nav-divider">•</div>
+                <div class="nav-location">60320 Frankfurt am Main</div>
+                <div class="nav-divider">•</div>
+                <a href="mailto:christoph.broexkes@yahoo.de" class="nav-email">
+                    christoph.broexkes@yahoo.de
+                </a>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/cbrox1994/" target="_blank" class="social-link" title="Instagram">
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.linkedin.com/in/christoph-bröxkes-99820a202" target="_blank" class="social-link" title="LinkedIn">
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/cbrox94" target="_blank" class="social-link" title="GitHub">
+                    <span>GitHub</span>
+                </a>
+                <a href="CV_BroexkesC.pdf" download="CV_Christoph_Broexkes.pdf" class="cv-download">CV</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <img src="Portrait.jpg" alt="Christoph Bröxkes" class="hero-portrait">
+            <div class="hero-content">
+                <h1 class="hero-name">CHRISTOPH BRÖXKES</h1>
+                <h2 class="hero-title">IT Consultant. Economist. Teamplayer.</h2>
+                <p class="hero-subtitle">
+                    Studierter Ökonom (Economics M.Sc.) mit Nebenfach Informatik und Schwerpunkt in Statistik & Ökonometrie.<br><br>
+                    Seit Juli 2023 bei adesso SE im IT Consulting. Eingesetzt vor allem als Requirements Engineer und Product Owner in agilen Softwareprojekten.
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills Visualization -->
+        <section class="section" id="skills-viz">
+            <div class="section-header">
+                <div class="section-title">KOMPETENZEN</div>
+                <h2 class="section-heading">Skills im Überblick</h2>
+                <p class="section-subtitle">Datengetriebene Darstellung meiner Fähigkeiten basierend auf praktischer Erfahrung</p>
+            </div>
+
+            <div class="skills-viz-container">
+                <!-- Legend -->
+                <div class="skills-legend">
+                    <div class="legend-item active" data-category="all" onclick="filterByCategory('all')">
+                        <span class="legend-color" style="background: linear-gradient(135deg, #10b981, #059669, #047857, #065f46);"></span>
+                        <span class="legend-label">Alle Kategorien</span>
+                    </div>
+                    <div class="legend-item" data-category="data" onclick="filterByCategory('data')">
+                        <span class="legend-color" style="background: #10b981;"></span>
+                        <span class="legend-label">Data & Analytics</span>
+                    </div>
+                    <div class="legend-item" data-category="reqeng" onclick="filterByCategory('reqeng')">
+                        <span class="legend-color" style="background: #059669;"></span>
+                        <span class="legend-label">Requirements Engineering & Business Analysis</span>
+                    </div>
+                    <div class="legend-item" data-category="pm" onclick="filterByCategory('pm')">
+                        <span class="legend-color" style="background: #047857;"></span>
+                        <span class="legend-label">Projektmanagement & Agile</span>
+                    </div>
+                    <div class="legend-item" data-category="tech" onclick="filterByCategory('tech')">
+                        <span class="legend-color" style="background: #065f46;"></span>
+                        <span class="legend-label">Technische Skills</span>
+                    </div>
+                </div>
+
+                <!-- Vertical Bar Chart -->
+                <div class="vertical-bars-wrapper" id="categoryBars">
+                    <div class="vertical-bar-item">
+                        <div class="vertical-bar-fill bar-data" data-height="100%"></div>
+                        <div class="vertical-bar-label">Data &<br>Analytics</div>
+                    </div>
+                    <div class="vertical-bar-item">
+                        <div class="vertical-bar-fill bar-reqeng" data-height="90.6%"></div>
+                        <div class="vertical-bar-label">Requirements<br>Engineering</div>
+                    </div>
+                    <div class="vertical-bar-item">
+                        <div class="vertical-bar-fill bar-pm" data-height="75%"></div>
+                        <div class="vertical-bar-label">Projekt-<br>management</div>
+                    </div>
+                    <div class="vertical-bar-item">
+                        <div class="vertical-bar-fill bar-tech" data-height="43.8%"></div>
+                        <div class="vertical-bar-label">Technische<br>Skills</div>
+                    </div>
+                </div>
+
+                <!-- Skill Hint -->
+                <div class="skill-hint" id="skillHint" style="display: none;">
+                    💡 Klicke auf einen Skill für Details und Referenzen
+                </div>
+
+                <!-- Individual Skill Bars (for filtered view) -->
+                <div class="skill-bars-wrapper" id="skillBars">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Berufserfahrung -->
+        <section class="section" id="berufserfahrung">
+            <div class="section-header">
+                <div class="section-title">BERUFSERFAHRUNG</div>
+                <h2 class="section-heading">Professionelle Tätigkeiten</h2>
+                <p class="section-subtitle">IT Consulting bei adesso SE</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item" id="ref-it-consultant">
+                    <div class="timeline-date">
+                        Seit Mär 2025
+                    </div>
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">IT Consultant</h3>
+                        <p class="timeline-company">adesso SE, Kiel</p>
+                        <p class="timeline-description">
+                            Weiterentwicklung als IT Consultant mit Fokus auf Requirements Engineering, Business Process Analysis & 
+                            Modelling, Stakeholder Management und Workshop-Moderation in agilen Softwareprojekten.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">Anforderungsmanagement</span>
+                            <span class="tag">Reporting</span>
+                            <span class="tag">Roadmap Planning</span>
+                            <span class="tag">Power BI</span>
+                            <span class="tag">BPMN 2.0</span>
+                            <span class="tag">LLM-Training</span>
+                            <span class="tag">Prompt Engineering</span>
+                            <span class="tag">Stakeholder Management</span>
+                            <span class="tag">Workshop Moderation</span>
+                            <span class="tag">Jira</span>
+                            <span class="tag">Confluence</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" id="ref-associate-it-consultant">
+                    <div class="timeline-date">
+                        Jul 2023<br>Mär 2025
+                    </div>
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Associate IT Consultant</h3>
+                        <p class="timeline-company">adesso SE, Kiel</p>
+                        <p class="timeline-description">
+                            Einstieg als Associate IT Consultant bei adesso SE. Mitarbeit in verschiedenen Projekten im öffentlichen 
+                            Sektor mit Schwerpunkt auf Requirements Engineering, Prozessmodellierung und agiler Softwareentwicklung.
+                        </p>
+                        <div class="timeline-tags">
+                            <!-- Keine separaten Skills - gleiche Position wie IT Consultant -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Ausbildung -->
+        <section class="section" id="ausbildung">
+            <div class="section-header">
+                <div class="section-title">AUSBILDUNG</div>
+                <h2 class="section-heading">Akademischer Werdegang</h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item" id="ref-master">
+                    <div class="timeline-date">
+                        Okt 2020<br>Jul 2023
+                    </div>
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">M.Sc. Economics</h3>
+                        <p class="timeline-company">Christian-Albrechts-Universität zu Kiel</p>
+                        <p class="timeline-description">
+                            • Nebenfach: Informatik<br>
+                            • Masterarbeit: "Old problem, new methods: applying machine learning techniques for German inflation 
+                            forecasting in a data rich environment"
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">Statistik & Ökonometrie</span>
+                            <span class="tag">Zeitreihenanalyse & Forecasting</span>
+                            <span class="tag">Matlab</span>
+                            <span class="tag">RStudio</span>
+                            <span class="tag">Stata</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Regressionsanalysen</span>
+                            <span class="tag">Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" id="ref-bachelor">
+                    <div class="timeline-date">
+                        Apr 2016<br>Sep 2019
+                    </div>
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">B.Sc. Economics</h3>
+                        <p class="timeline-company">Universität zu Köln</p>
+                        <p class="timeline-description">
+                            • Schwerpunkte: Behavioral Economics, Game & Decision Theory<br>
+                            • Auslandssemester: Universität Zagreb, Kroatien (WiSe 2018/19)
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">Statistik & Ökonometrie</span>
+                            <span class="tag">Game Theory</span>
+                            <span class="tag">Behavioral Economics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Zertifikate -->
+        <section class="section" id="zertifikate">
+            <div class="section-header">
+                <div class="section-title">ZERTIFIKATE</div>
+                <h2 class="section-heading">Professionelle Qualifikationen</h2>
+            </div>
+
+            <div class="training-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Bezeichnung</th>
+                            <th>Aussteller</th>
+                            <th>Datum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="ref-ireb">
+                            <td>IREB Certified Professional for Requirements Engineering (FL)</td>
+                            <td>International Requirements Engineering Board</td>
+                            <td>04-2024</td>
+                        </tr>
+                        <tr id="ref-psm">
+                            <td>Professional Scrum Master I</td>
+                            <td>Scrum.org</td>
+                            <td>02-2024</td>
+                        </tr>
+                        <tr id="ref-pspo">
+                            <td>Professional Scrum Product Owner I</td>
+                            <td>Scrum.org</td>
+                            <td>02-2024</td>
+                        </tr>
+                        <tr id="ref-python-bootcamp">
+                            <td>Python for Data Science and Machine Learning Bootcamp</td>
+                            <td>Udemy</td>
+                            <td>04-2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Schulungen -->
+        <section class="section" id="schulungen">
+            <div class="section-header">
+                <div class="section-title">WEITERBILDUNG</div>
+                <h2 class="section-heading">Absolvierte Schulungen</h2>
+            </div>
+
+            <div class="training-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Bezeichnung</th>
+                            <th>Anbieter</th>
+                            <th>Datum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="ref-genai">
+                            <td>GenAI Fundamentals for Project Work</td>
+                            <td>adesso</td>
+                            <td>11-2025</td>
+                        </tr>
+                        <tr id="ref-powerbi">
+                            <td>Power BI Masterclass</td>
+                            <td>Udemy</td>
+                            <td>10-2025</td>
+                        </tr>
+                        <tr id="ref-prompt-eng">
+                            <td>Generative AI: Prompt Engineering Basics</td>
+                            <td>IBM / Coursera</td>
+                            <td>11-2024</td>
+                        </tr>
+                        <tr id="ref-bpmn">
+                            <td>Business Process Model and Notation (BPMN)</td>
+                            <td>adesso</td>
+                            <td>04-2024</td>
+                        </tr>
+                        <tr id="ref-re-grundlagen">
+                            <td>Grundlagen Requirements Engineering nach IREB-Standard</td>
+                            <td>adesso</td>
+                            <td>01-2024</td>
+                        </tr>
+                        <tr id="ref-agile">
+                            <td>Agile Basics</td>
+                            <td>adesso</td>
+                            <td>11-2023</td>
+                        </tr>
+                        <tr id="ref-public">
+                            <td>Public Branchenschulung</td>
+                            <td>adesso</td>
+                            <td>09-2023</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Studentische Erfahrung -->
+        <section class="section" id="studentische-erfahrung">
+            <div class="section-header">
+                <div class="section-title">PRAKTISCHE ERFAHRUNG</div>
+                <h2 class="section-heading">Studentische Tätigkeiten</h2>
+                <p class="section-subtitle">Praktika und Werkstudententätigkeiten</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item" id="ref-dataport">
+                    <div class="timeline-date">
+                        Apr 2022<br>Apr 2023
+                    </div>
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Werkstudent - Consulting Strategie & Innovation</h3>
+                        <p class="timeline-company">Dataport AöR, Kiel</p>
+                        <p class="timeline-description">
+                            • Reporting für Lenkungsgruppe und Projektmanagement Ausschuss<br>
+                            • Sicherung der Datenqualität auf SharePoint<br>
+                            • Analyse der Nutzerstatistiken des Serviceportals in Matomo Analytics
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">Reporting</span>
+                            <span class="tag">Matomo Analytics</span>
+                            <span class="tag">MS Excel</span>
+                            <span class="tag">SharePoint</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" id="ref-dekra">
+                    <div class="timeline-date">
+                        Apr 2020<br>Jul 2020
+                    </div>
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Praktikum - Strategisches Marketing</h3>
+                        <p class="timeline-company">DEKRA SE, Stuttgart</p>
+                        <p class="timeline-description">
+                            • Beobachtung und Analyse der Markt- und Wettbewerbssituation der DEKRA<br>
+                            • Auswertung und Aufbereitung der Datensätze in MS Excel<br>
+                            • Erstellung von Präsentationen für die Kommunikation der Ergebnisse
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">MS Excel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" id="ref-cleverbridge">
+                    <div class="timeline-date">
+                        Mär 2016<br>Mai 2018
+                    </div>
+                    <div class="timeline-marker">
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Werkstudent - Payment Processing</h3>
+                        <p class="timeline-company">Cleverbridge AG, Köln</p>
+                        <p class="timeline-description">
+                            • Prozessoptimierung in der Abteilung Payment Processing<br>
+                            • Verantwortlich für den Mahnprozess im E-Commerce und Softwarevertrieb
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">MS Excel</span>
+                            <span class="tag">Prozessautomatisierung</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Hobbies & Persönliches -->
+        <section class="section" id="hobbies">
+            <div class="section-header">
+                <div class="section-title">PERSÖNLICHES</div>
+                <h2 class="section-heading">Hobbies & Persönliches</h2>
+            </div>
+
+            <!-- Tech Section -->
+            <h3 class="hobbies-section-title">💻 Tech</h3>
+            
+            <div class="hobby-card-full">
+                <div class="hobby-header">
+                    <span class="hobby-icon">🏠</span>
+                    <h3 class="hobby-title">Home Lab & Self-Hosting</h3>
+                </div>
+                <p class="hobby-description">
+                    Betrieb eines Raspberry Pi Homeservers mit Docker-Containern.
+                </p>
+                <div class="hobby-tags">
+                    <span class="hobby-tag">Raspberry Pi</span>
+                    <span class="hobby-tag">Docker</span>
+                    <span class="hobby-tag">Linux</span>
+                </div>
+            </div>
+
+            <div class="hobby-card-full">
+                <div class="hobby-header">
+                    <span class="hobby-icon">🛠️</span>
+                    <h3 class="hobby-title">Anwendungsentwicklung</h3>
+                </div>
+                <p class="hobby-description">
+                    Entwicklung von Anwendungen und Tools als Hobby-Projekte
+                </p>
+                <div class="hobby-project-inline">
+                    <span class="project-item">Handball Spielbericht-Generator</span>
+                    <span class="project-separator">•</span>
+                    <span class="project-item">Diese Website</span>
+                    <span class="project-separator">•</span>
+                    <span class="project-item">Immobilien-Wirtschaftlichkeitsanalyse</span>
+                    <span class="project-separator">•</span>
+                    <span class="project-more">...</span>
+                </div>
+                <div class="hobby-tags">
+                    <span class="hobby-tag">Python</span>
+                    <span class="hobby-tag">Streamlit</span>
+                    <span class="hobby-tag">Git</span>
+                    <span class="hobby-tag">Web Development</span>
+                    <span class="hobby-tag">KI/LLMs</span>
+                </div>
+            </div>
+
+            <!-- Sport & Outdoor Section -->
+            <h3 class="hobbies-section-title">⛵ Sport & Outdoor</h3>
+            <div class="hobby-card-full">
+                <ul class="sport-list">
+                    <li>🤾 Handball</li>
+                    <li>💪 Fitnesstraining</li>
+                    <li>⛵ Segeln</li>
+                    <li>🏄 Surfen</li>
+                    <li>🥾 Wandern</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="skillModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-skill-name" id="modalSkillName"></h2>
+                <a class="modal-learn-more" id="modalLearnMore" target="_blank" rel="noopener noreferrer">Was ist das?</a>
+            </div>
+            <div class="modal-section-title">REFERENZEN</div>
+            <div id="modalReferences"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Christoph Bröxkes | IT Consultant</p>
+    </footer>
+
+    <script>
+        // Skills Data
+        const skillsData = {
+            // Requirements Engineering & Business Analysis
+            'anforderungsmanagement': {
+                name: 'Anforderungsmanagement',
+                category: 'Requirements Engineering & Business Analysis',
+                score: 6,
+                references: [
+                    { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 },
+                    { type: 'cert', title: 'IREB CPRE Foundation Level', company: 'IREB', intensity: 3 },
+                    { type: 'training', title: 'Grundlagen Requirements Engineering nach IREB-Standard', company: 'adesso', intensity: 3 }
+                ]
+            },
+            'stakeholder': {
+                name: 'Stakeholder Management',
+                category: 'Requirements Engineering & Business Analysis',
+                score: 7,
+                references: [
+                    { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 },
+                    { type: 'cert', title: 'IREB CPRE Foundation Level', company: 'IREB', intensity: 2 },
+                    { type: 'training', title: 'Grundlagen Requirements Engineering', company: 'adesso', intensity: 2 }
+                ]
+            },
+            'workshop': {
+                name: 'Workshop Moderation',
+                category: 'Requirements Engineering & Business Analysis',
+                score: 3,
+                references: [
+                    { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 }
+                ]
+            },
+            'bpmn': {
+                name: 'BPMN 2.0',
+                category: 'Requirements Engineering & Business Analysis',
+                score: 6,
+                references: [
+                    { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 },
+                    { type: 'training', title: 'Business Process Model and Notation', company: 'adesso', intensity: 3 }
+                ]
+            },
+            'kontext': {
+                name: 'Kontextmodellierung',
+                category: 'Requirements Engineering & Business Analysis',
+                score: 2,
+                references: [
+                    { type: 'cert', title: 'IREB CPRE Foundation Level', company: 'IREB', intensity: 1 },
+                    { type: 'training', title: 'Grundlagen Requirements Engineering', company: 'adesso', intensity: 1 }
+                ]
+            },
+            'uml': {
+                name: 'UML-Modellierung',
+                category: 'Requirements Engineering & Business Analysis',
+                score: 2,
+                references: [
+                    { type: 'cert', title: 'IREB CPRE Foundation Level', company: 'IREB', intensity: 1 },
+                    { type: 'training', title: 'Grundlagen Requirements Engineering', company: 'adesso', intensity: 1 }
+                ]
+            },
+            // Data & Analytics
+            'excel': {
+                name: 'MS Excel',
+                category: 'Data & Analytics',
+                score: 9,
+                references: [
+                    { type: 'job', title: 'Werkstudent Dataport', company: 'Dataport AöR', intensity: 3 },
+                    { type: 'job', title: 'Praktikum', company: 'DEKRA SE', intensity: 3 },
+                    { type: 'job', title: 'Werkstudent', company: 'Cleverbridge AG', intensity: 3 }
+                ]
+            },
+            'python': {
+                name: 'Python',
+                category: 'Data & Analytics',
+                score: 6,
+                references: [
+                    { type: 'edu', title: 'M.Sc. Economics', company: 'Uni Kiel', intensity: 3 },
+                    { type: 'cert', title: 'Python for Data Science Bootcamp', company: 'Udemy', intensity: 3 }
+                ]
+            },
+            'statistik': {
+                name: 'Statistik & Ökonometrie',
+                category: 'Data & Analytics',
+                score: 4,
+                references: [
+                    { type: 'edu', title: 'M.Sc. Economics', company: 'Uni Kiel', intensity: 3 },
+                    { type: 'edu', title: 'B.Sc. Economics', company: 'Uni Köln', intensity: 1 }
+                ]
+            },
+            'powerbi': {
+                name: 'Power BI',
+                category: 'Data & Analytics',
+                score: 4,
+                references: [
+                    { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 1 },
+                    { type: 'training', title: 'Power BI Masterclass', company: 'Udemy', intensity: 3 }
+                ]
+            },
+            'zeitreihe': {
+                name: 'Zeitreihenanalyse & Forecasting',
+                category: 'Data & Analytics',
+                score: 1,
+                references: [
+                    { type: 'edu', title: 'M.Sc. Economics - Masterarbeit', company: 'Uni Kiel', intensity: 1 }
+                ]
+            },
+            'matlab': {
+                name: 'Matlab',
+                category: 'Data & Analytics',
+                score: 3,
+                references: [
+                    { type: 'edu', title: 'M.Sc. Economics', company: 'Uni Kiel', intensity: 3 }
+                ]
+            },
+            'regression': {
+                name: 'Regressionsanalysen',
+                category: 'Data & Analytics',
+                score: 1,
+                references: [
+                    { type: 'edu', title: 'M.Sc. Economics', company: 'Uni Kiel', intensity: 1 }
+                ]
+            },
+            'ml': {
+                name: 'Machine Learning',
+                category: 'Data & Analytics',
+                score: 1,
+                references: [
+                    { type: 'edu', title: 'M.Sc. Economics', company: 'Uni Kiel', intensity: 1 }
+                ]
+            },
+            'matomo': {
+                name: 'Matomo Analytics',
+                category: 'Data & Analytics',
+                score: 1,
+                references: [
+                    { type: 'job', title: 'Werkstudent', company: 'Dataport AöR', intensity: 1 }
+                ]
+            },
+            'rstudio': {
+                name: 'RStudio',
+                category: 'Data & Analytics',
+                score: 1,
+                references: [
+                    { type: 'edu', title: 'M.Sc. Economics', company: 'Uni Kiel', intensity: 1 }
+                ]
+            },
+            'stata': {
+                name: 'Stata',
+                category: 'Data & Analytics',
+                score: 1,
+                references: [
+                    { type: 'edu', title: 'M.Sc. Economics', company: 'Uni Kiel', intensity: 1 }
+                ]
+            },
+            // Projektmanagement & Agile
+            'scrum': {
+                name: 'Scrum Framework',
+                category: 'Projektmanagement & Agile Methoden',
+                score: 6,
+                references: [
+                    { type: 'cert', title: 'Professional Scrum Master I', company: 'Scrum.org', intensity: 3 },
+                    { type: 'cert', title: 'Professional Scrum Product Owner I', company: 'Scrum.org', intensity: 3 }
+                ]
+            },
+            'backlog': {
+                name: 'Product Backlog Management',
+                category: 'Projektmanagement & Agile Methoden',
+                score: 3,
+                references: [
+                    { type: 'cert', title: 'Professional Scrum Product Owner I', company: 'Scrum.org', intensity: 3 }
+                ]
+            },
+            'jira': {
+                name: 'Jira',
+                category: 'Projektmanagement & Agile Methoden',
+                score: 3,
+                references: [
+                    { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 }
+                ]
+            },
+            'confluence': {
+                name: 'Confluence',
+                category: 'Projektmanagement & Agile Methoden',
+                score: 3,
+                references: [
+                    { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 }
+                ]
+            },
+            'reporting': {
+                name: 'Reporting',
+                category: 'Projektmanagement & Agile Methoden',
+                score: 6,
+                references: [
+                    { type: 'job', title: 'Werkstudent - Consulting Strategie & Innovation', company: 'Dataport AöR', intensity: 3 },
+                    { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 }
+                ]
+            },
+            'roadmap': {
+                name: 'Roadmap Planning',
+                category: 'Projektmanagement & Agile Methoden',
+                score: 3,
+                references: [
+                    { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 }
+                ]
+            },
+            // Technical Skills
+            'prompt': {
+                name: 'Prompt Engineering',
+                category: 'Technische Skills',
+                score: 3,
+                references: [
+                    { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 1 },
+                    { type: 'training', title: 'Prompt Engineering Basics', company: 'IBM/Coursera', intensity: 2 }
+                ]
+            },
+            'sharepoint': {
+                name: 'SharePoint',
+                category: 'Technische Skills',
+                score: 2,
+                references: [
+                    { type: 'job', title: 'Werkstudent', company: 'Dataport AöR', intensity: 2 }
+                ]
+            },
+            'prozessauto': {
+                name: 'Prozessautomatisierung',
+                category: 'Technische Skills',
+                score: 2,
+                references: [
+                    { type: 'job', title: 'Werkstudent', company: 'Cleverbridge AG', intensity: 2 }
+                ]
+            },
+            'llm': {
+                name: 'LLM-Training',
+                category: 'Technische Skills',
+                score: 1,
+                references: [
+                    { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 1 }
+                ]
+            },
+            'docker': {
+                name: 'Docker',
+                category: 'Technische Skills',
+                score: 1,
+                references: [
+                    { type: 'hobby', title: 'Home Lab & Self-Hosting', company: 'Privat', intensity: 1 }
+                ]
+            },
+            'linux': {
+                name: 'Linux',
+                category: 'Technische Skills',
+                score: 1,
+                references: [
+                    { type: 'hobby', title: 'Home Lab & Self-Hosting', company: 'Privat', intensity: 1 }
+                ]
+            },
+            'webdev': {
+                name: 'Web Development',
+                category: 'Technische Skills',
+                score: 1,
+                references: [
+                    { type: 'hobby', title: 'Anwendungsentwicklung', company: 'Privat', intensity: 1 }
+                ]
+            },
+            'git': {
+                name: 'Git',
+                category: 'Technische Skills',
+                score: 1,
+                references: [
+                    { type: 'hobby', title: 'Anwendungsentwicklung', company: 'Privat', intensity: 1 }
+                ]
+            },
+            'streamlit': {
+                name: 'Streamlit',
+                category: 'Technische Skills',
+                score: 2,
+                references: [
+                    { type: 'hobby', title: 'Anwendungsentwicklung', company: 'Privat', intensity: 2 }
+                ]
+            }
+        };
+
+        // Filter by Category - Multi-select support
+        let selectedCategories = ['all'];
+
+        function filterByCategory(category) {
+            if (category === 'all') {
+                // Reset to all categories
+                selectedCategories = ['all'];
+                document.querySelectorAll('.legend-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                document.querySelector(`[data-category="all"]`).classList.add('active');
+                
+                // Show category bars
+                document.getElementById('categoryBars').style.display = 'flex';
+                document.getElementById('skillBars').classList.remove('active');
+                document.getElementById('skillHint').style.display = 'none';
+            } else {
+                // Remove 'all' if present
+                if (selectedCategories.includes('all')) {
+                    selectedCategories = [];
+                    document.querySelector(`[data-category="all"]`).classList.remove('active');
+                }
+                
+                // Toggle category
+                const index = selectedCategories.indexOf(category);
+                if (index > -1) {
+                    selectedCategories.splice(index, 1);
+                    document.querySelector(`[data-category="${category}"]`).classList.remove('active');
+                } else {
+                    selectedCategories.push(category);
+                    document.querySelector(`[data-category="${category}"]`).classList.add('active');
+                }
+                
+                // If no categories selected, go back to all
+                if (selectedCategories.length === 0) {
+                    filterByCategory('all');
+                    return;
+                }
+                
+                // If all 4 categories selected, show category view
+                if (selectedCategories.length === 4) {
+                    selectedCategories = ['all'];
+                    document.querySelectorAll('.legend-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    document.querySelector(`[data-category="all"]`).classList.add('active');
+                    document.getElementById('categoryBars').style.display = 'flex';
+                    document.getElementById('skillBars').classList.remove('active');
+                    document.getElementById('skillHint').style.display = 'none';
+                } else {
+                    // Show filtered skill bars
+                    document.getElementById('categoryBars').style.display = 'none';
+                    generateMultiCategorySkillBars(selectedCategories);
+                    document.getElementById('skillHint').style.display = 'block';
+                }
+            }
+        }
+
+        // Generate skill bars for multiple selected categories
+        function generateMultiCategorySkillBars(categories) {
+            const skillBarsContainer = document.getElementById('skillBars');
+            skillBarsContainer.innerHTML = '';
+            skillBarsContainer.classList.add('active');
+            
+            // Filter skills by selected categories
+            const categoryMap = {
+                'data': 'Data & Analytics',
+                'reqeng': 'Requirements Engineering & Business Analysis',
+                'pm': 'Projektmanagement & Agile Methoden',
+                'tech': 'Technische Skills'
+            };
+            
+            const categoryNames = categories.map(cat => categoryMap[cat]);
+            
+            const filteredSkills = Object.entries(skillsData)
+                .filter(([key, skill]) => categoryNames.includes(skill.category))
+                .sort((a, b) => b[1].score - a[1].score);
+            
+            // Find max score for scaling
+            const maxScore = Math.max(...filteredSkills.map(([k, s]) => s.score));
+            
+            // Color map - Green Shades
+            const colorMap = {
+                'Data & Analytics': 'linear-gradient(180deg, #34d399 0%, #10b981 100%)',
+                'Requirements Engineering & Business Analysis': 'linear-gradient(180deg, #10b981 0%, #059669 100%)',
+                'Projektmanagement & Agile Methoden': 'linear-gradient(180deg, #059669 0%, #047857 100%)',
+                'Technische Skills': 'linear-gradient(180deg, #047857 0%, #065f46 100%)'
+            };
+            
+            filteredSkills.forEach(([key, skill]) => {
+                const barItem = document.createElement('div');
+                barItem.className = 'skill-bar-item';
+                
+                const heightPercent = (skill.score / maxScore) * 100;
+                
+                // Better word wrapping for long skill names
+                const skillNameFormatted = skill.name
+                    .replace('Anforderungsmanagement', 'Anforderungs-<br>management')
+                    .replace('Stakeholder Management', 'Stakeholder<br>Management')
+                    .replace('Kontextmodellierung', 'Kontext-<br>modellierung')
+                    .replace('UML-Modellierung', 'UML-<br>Modellierung')
+                    .replace('Workshop Moderation', 'Workshop<br>Moderation')
+                    .replace('Product Backlog Management', 'Product<br>Backlog')
+                    .replace('Prozessautomatisierung', 'Prozess-<br>automatisierung')
+                    .replace('Zeitreihenanalyse', 'Zeitreihen-<br>analyse')
+                    .replace('Regressionsanalysen', 'Regressions-<br>analysen')
+                    .replace('Machine Learning', 'Machine<br>Learning')
+                    .replace('Matomo Analytics', 'Matomo<br>Analytics')
+                    .replace('Statistik & Ökonometrie', 'Statistik &<br>Ökonometrie')
+                    .replace('Scrum Framework', 'Scrum<br>Framework')
+                    .replace('Prompt Engineering', 'Prompt<br>Engineering');
+                
+                barItem.innerHTML = `
+                    <div class="skill-bar-fill" data-height="${heightPercent}%" style="background: ${colorMap[skill.category]}; height: 0%;"></div>
+                    <div class="skill-bar-label">${skillNameFormatted}</div>
+                `;
+                
+                barItem.onclick = () => openModal(key);
+                skillBarsContainer.appendChild(barItem);
+            });
+            
+            // Animate bars
+            setTimeout(() => {
+                document.querySelectorAll('#skillBars .skill-bar-fill').forEach(bar => {
+                    bar.style.height = bar.getAttribute('data-height');
+                });
+                
+                // Check if scrolling is needed
+                const container = document.getElementById('skillBars');
+                if (container.scrollWidth > container.clientWidth) {
+                    container.classList.add('scrollable');
+                } else {
+                    container.classList.remove('scrollable');
+                }
+            }, 100);
+        }
+
+        // Open Modal
+        function openModal(skillKey) {
+            const skill = skillsData[skillKey];
+            const modal = document.getElementById('skillModal');
+            
+            document.getElementById('modalSkillName').textContent = skill.name;
+            
+            // Set "Was ist das?" Google search link
+            const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(skill.name)}`;
+            document.getElementById('modalLearnMore').href = searchUrl;
+            
+            // Map reference titles to specific IDs
+            const referenceIdMap = {
+                // Jobs
+                'IT Consultant': 'ref-it-consultant',
+                'Associate IT Consultant': 'ref-associate-it-consultant',
+                'Werkstudent Dataport': 'ref-dataport',
+                'Werkstudent - Consulting Strategie & Innovation': 'ref-dataport',
+                'Praktikum': 'ref-dekra',
+                'Praktikum - Strategisches Marketing': 'ref-dekra',
+                'Werkstudent': 'ref-cleverbridge',
+                'Werkstudent - Payment Processing': 'ref-cleverbridge',
+                
+                // Education
+                'M.Sc. Economics': 'ref-master',
+                'M.Sc. Economics - Masterarbeit': 'ref-master',
+                'B.Sc. Economics': 'ref-bachelor',
+                
+                // Certificates
+                'IREB CPRE Foundation Level': 'ref-ireb',
+                'Professional Scrum Master I': 'ref-psm',
+                'Professional Scrum Product Owner I': 'ref-pspo',
+                'Python for Data Science Bootcamp': 'ref-python-bootcamp',
+                
+                // Trainings
+                'GenAI Fundamentals for Project Work': 'ref-genai',
+                'Power BI Masterclass': 'ref-powerbi',
+                'Prompt Engineering Basics': 'ref-prompt-eng',
+                'Business Process Model and Notation': 'ref-bpmn',
+                'Grundlagen Requirements Engineering nach IREB-Standard': 'ref-re-grundlagen',
+                'Agile Basics': 'ref-agile',
+                'Public Branchenschulung': 'ref-public'
+            };
+            
+            const referencesHTML = skill.references.map(ref => {
+                const typeLabel = {
+                    'job': 'Berufserfahrung',
+                    'cert': 'Zertifikat',
+                    'training': 'Schulung',
+                    'edu': 'Studium'
+                }[ref.type] || 'Referenz';
+                
+                // Get specific ID for this reference
+                const specificId = referenceIdMap[ref.title] || '';
+                
+                return `
+                    <div class="reference-item" onclick="navigateToReference('${specificId}')">
+                        <div class="ref-title">${ref.title}</div>
+                        <div class="ref-company">${typeLabel} • ${ref.company}</div>
+                    </div>
+                `;
+            }).join('');
+            
+            document.getElementById('modalReferences').innerHTML = referencesHTML;
+            modal.classList.add('active');
+        }
+
+        // Navigate to specific reference and close modal
+        function navigateToReference(refId) {
+            closeModal();
+            if (refId) {
+                setTimeout(() => {
+                    const element = document.getElementById(refId);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        // Highlight effect
+                        element.style.backgroundColor = 'rgba(16, 185, 129, 0.1)';
+                        setTimeout(() => {
+                            element.style.transition = 'background-color 1s';
+                            element.style.backgroundColor = '';
+                        }, 1500);
+                    }
+                }, 300);
+            }
+        }
+
+        // Close Modal
+        function closeModal() {
+            document.getElementById('skillModal').classList.remove('active');
+        }
+
+        // Close modal on outside click
+        document.getElementById('skillModal').addEventListener('click', (e) => {
+            if (e.target.id === 'skillModal') {
+                closeModal();
+            }
+        });
+
+        // Animate vertical bars on scroll
+        function animateVerticalBars() {
+            const bars = document.querySelectorAll('.vertical-bar-fill');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bar = entry.target;
+                        const targetHeight = bar.getAttribute('data-height');
+                        setTimeout(() => {
+                            bar.style.height = targetHeight;
+                        }, 100);
+                        observer.unobserve(bar);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            bars.forEach(bar => observer.observe(bar));
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            animateVerticalBars();
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 90,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
