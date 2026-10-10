@@ -1,0 +1,14 @@
+{
+  "name": "mein-internetauftritt",
+  "private": true,
+  "description": "Persönliche Portfolio-Website von Christoph Bröxkes (statisch, GitHub Pages)",
+  "scripts": {
+    "lint": "htmlhint index.html",
+    "test": "playwright test",
+    "check": "npm run lint && npm test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "htmlhint": "1.9.2"
+  }
+}
