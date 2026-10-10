@@ -49,9 +49,9 @@ const profile = {
     // description optional (leer = Zeile entfällt)
     sideProjects: [
         { title: 'Home Lab & Self-Hosting', description: 'Raspberry-Pi-Server mit Docker-Containern', tech: ['Docker', 'Linux'] },
-        { title: 'Handball-Spielbericht-Generator', description: '', tech: [] },
-        { title: 'Immobilien-Wirtschaftlichkeitsanalyse', description: '', tech: [] },
-        { title: 'Diese Website', description: '', tech: ['Web Development'] }
+        { title: 'Handball-Spielbericht-Generator', description: '', tech: ['Python', 'Streamlit'] },
+        { title: 'Immobilien-Wirtschaftlichkeitsanalyse', description: '', tech: ['Python'] },
+        { title: 'Diese Website', description: '', tech: ['Web Development', 'Git'] }
     ],
     hobbies: ['Handball', 'Fitnesstraining', 'Segeln', 'Surfen', 'Wandern'],
     footer: '© 2026 Christoph Bröxkes | IT Consultant'
