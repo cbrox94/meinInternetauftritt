@@ -6,538 +6,111 @@
     <title>Christoph Bröxkes - IT Consultant</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="navbar-content">
-            <div class="nav-left">
-                <div class="nav-name">Christoph Bröxkes</div>
-                <div class="nav-divider">•</div>
-                <div class="nav-location">60320 Frankfurt am Main</div>
-                <div class="nav-divider">•</div>
-                <a href="mailto:christoph.broexkes@yahoo.de" class="nav-email">
-                    christoph.broexkes@yahoo.de
-                </a>
-            </div>
-            
-            <div class="social-links">
-                <a href="https://www.instagram.com/cbrox1994/" target="_blank" class="social-link" title="Instagram">
-                    <span>Instagram</span>
-                </a>
-                <a href="https://www.linkedin.com/in/christoph-bröxkes-99820a202" target="_blank" class="social-link" title="LinkedIn">
-                    <span>LinkedIn</span>
-                </a>
-                <a href="https://github.com/cbrox94" target="_blank" class="social-link" title="GitHub">
-                    <span>GitHub</span>
-                </a>
-                <a href="CV_BroexkesC.pdf" download="CV_Christoph_Broexkes.pdf" class="cv-download">CV</a>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container">
-        <!-- Hero -->
-        <section class="hero">
-            <img src="Portrait.jpg" alt="Christoph Bröxkes" class="hero-portrait">
-            <div class="hero-content">
-                <h1 class="hero-name">CHRISTOPH BRÖXKES</h1>
-                <h2 class="hero-title">IT Consultant. Economist. Teamplayer.</h2>
-                <p class="hero-subtitle">
-                    Studierter Ökonom (Economics M.Sc.) mit Nebenfach Informatik und Schwerpunkt in Statistik & Ökonometrie.<br><br>
-                    Seit Oktober 2026 als Business Analyst bei S Broker in Wiesbaden. Zuvor drei Jahre IT Consulting bei adesso SE, eingesetzt vor allem als Requirements Engineer und Product Owner in agilen Softwareprojekten.
-                </p>
-            </div>
-        </section>
-
-        <!-- Skills Visualization -->
-        <section class="section" id="skills-viz">
-            <div class="section-header">
-                <div class="section-title">KOMPETENZEN</div>
-                <h2 class="section-heading">Skills im Überblick</h2>
-                <p class="section-subtitle">Datengetriebene Darstellung meiner Fähigkeiten basierend auf praktischer Erfahrung</p>
-            </div>
-
-            <div class="skills-viz-container">
-                <!-- Legend -->
-                <div class="skills-legend">
-                    <div class="legend-item active" data-category="all" onclick="filterByCategory('all')">
-                        <span class="legend-color" style="background: linear-gradient(135deg, #10b981, #059669, #047857, #065f46);"></span>
-                        <span class="legend-label">Alle Kategorien</span>
-                    </div>
-                    <div class="legend-item" data-category="data" onclick="filterByCategory('data')">
-                        <span class="legend-color" style="background: #10b981;"></span>
-                        <span class="legend-label">Data & Analytics</span>
-                    </div>
-                    <div class="legend-item" data-category="reqeng" onclick="filterByCategory('reqeng')">
-                        <span class="legend-color" style="background: #059669;"></span>
-                        <span class="legend-label">Requirements Engineering & Business Analysis</span>
-                    </div>
-                    <div class="legend-item" data-category="pm" onclick="filterByCategory('pm')">
-                        <span class="legend-color" style="background: #047857;"></span>
-                        <span class="legend-label">Projektmanagement & Agile</span>
-                    </div>
-                    <div class="legend-item" data-category="tech" onclick="filterByCategory('tech')">
-                        <span class="legend-color" style="background: #065f46;"></span>
-                        <span class="legend-label">Technische Skills</span>
-                    </div>
-                </div>
-
-                <!-- Vertical Bar Chart -->
-                <div class="vertical-bars-wrapper" id="categoryBars">
-                    <div class="vertical-bar-item" onclick="filterByCategory('data')">
-                        <div class="vertical-bar-fill bar-data" data-category="data"></div>
-                        <div class="vertical-bar-label">Data &<br>Analytics</div>
-                    </div>
-                    <div class="vertical-bar-item" onclick="filterByCategory('reqeng')">
-                        <div class="vertical-bar-fill bar-reqeng" data-category="reqeng"></div>
-                        <div class="vertical-bar-label">Requirements<br>Engineering</div>
-                    </div>
-                    <div class="vertical-bar-item" onclick="filterByCategory('pm')">
-                        <div class="vertical-bar-fill bar-pm" data-category="pm"></div>
-                        <div class="vertical-bar-label">Projekt-<br>management</div>
-                    </div>
-                    <div class="vertical-bar-item" onclick="filterByCategory('tech')">
-                        <div class="vertical-bar-fill bar-tech" data-category="tech"></div>
-                        <div class="vertical-bar-label">Technische<br>Skills</div>
-                    </div>
-                </div>
-
-                <!-- Skill Hint -->
-                <div class="skill-hint" id="skillHint" style="display: none;">
-                    💡 Klicke auf einen Skill für Details und Referenzen
-                </div>
-
-                <!-- Individual Skill Bars (for filtered view) -->
-                <div class="skill-bars-wrapper" id="skillBars">
-                    <!-- Will be populated by JavaScript -->
+    <!-- Gerüst: Inhalte werden von js/app.js aus data/*.js gerendert -->
+    <div class="layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="profile-head">
+                <img class="profile-photo" id="profilePhoto" src="Portrait.jpg" alt="Porträt Christoph Bröxkes" width="112" height="112">
+                <div class="profile-text">
+                    <h1 class="profile-name" id="profileName"></h1>
+                    <p class="profile-tagline" id="profileTagline"></p>
+                    <p class="profile-location" id="profileLocation"></p>
                 </div>
             </div>
-        </section>
+            <div class="profile-actions" id="profileActions"></div>
 
-        <div class="section-divider"></div>
+            <details class="side-section" id="sideStations">
+                <summary>
+                    <span class="side-title">Stationen</span>
+                    <span class="side-hint">Klick filtert Referenzen</span>
+                    <span class="side-meta" id="stationsMeta"></span>
+                </summary>
+                <div class="side-body">
+                    <div class="station-list" id="stationList"></div>
+                    <button type="button" class="text-toggle" data-action="toggle-list" aria-expanded="false" aria-controls="studentList" id="studentToggle"></button>
+                    <ul class="sub-list" id="studentList" hidden></ul>
+                </div>
+            </details>
 
-        <!-- Berufserfahrung -->
-        <section class="section" id="berufserfahrung">
-            <div class="section-header">
-                <div class="section-title">BERUFSERFAHRUNG</div>
-                <h2 class="section-heading">Professionelle Tätigkeiten</h2>
-                <p class="section-subtitle">IT Consulting & Business Analysis</p>
-            </div>
+            <details class="side-section" id="sideEducation">
+                <summary>
+                    <span class="side-title">Ausbildung</span>
+                    <span class="side-meta" id="educationMeta"></span>
+                </summary>
+                <div class="side-body">
+                    <ul class="plain-list" id="educationList"></ul>
+                </div>
+            </details>
 
-            <div class="timeline">
-                <div class="timeline-item" id="ref-sbroker">
-                    <div class="timeline-date">
-                        Seit Okt 2026
+            <details class="side-section" id="sideCertificates">
+                <summary>
+                    <span class="side-title"><span class="only-desktop">Zertifikate</span><span class="only-mobile">Zertifikate &amp; Schulungen</span></span>
+                    <span class="side-meta" id="certificatesMeta"></span>
+                </summary>
+                <div class="side-body">
+                    <ul class="dated-list" id="certificateList"></ul>
+                    <button type="button" class="text-toggle" data-action="toggle-list" aria-expanded="false" aria-controls="trainingList" id="trainingToggle"></button>
+                    <ul class="sub-list dated-list" id="trainingList" hidden></ul>
+                </div>
+            </details>
+        </aside>
+
+        <main class="main" id="main">
+            <section class="intro" id="profil" aria-label="Profil"></section>
+
+            <section class="block" id="kompetenzen" aria-labelledby="kompetenzenTitle">
+                <p class="eyebrow">Kompetenzen</p>
+                <h2 class="block-title" id="kompetenzenTitle">Skills im Überblick</h2>
+                <p class="block-subtitle">Datengetriebene Darstellung meiner Fähigkeiten basierend auf praktischer Erfahrung</p>
+
+                <div class="legend" id="legend" role="group" aria-label="Kategorien"></div>
+
+                <div class="chart-card">
+                    <div class="chart-scroll" id="chartScroll">
+                        <div class="chart" id="chart"></div>
                     </div>
-                    <div class="timeline-marker">
-                        <div class="timeline-dot"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Business Analyst</h3>
-                        <p class="timeline-company">S Broker AG &amp; Co. KG, Wiesbaden</p>
-                        <p class="timeline-description">
-                            Business Analyst im Wertpapiergeschäft des Online-Brokers der Sparkassen-Finanzgruppe. Schnittstelle zwischen 
-                            Fachbereichen und IT mit Fokus auf Anforderungsmanagement, Konzeption von IT- und Prozesslösungen, 
-                            Stakeholder-Abstimmung und fachlicher Unterstützung im Incident Management.
-                        </p>
-                        <div class="timeline-tags">
-                            <span class="tag">Anforderungsmanagement</span>
-                            <span class="tag">Stakeholder Management</span>
-                            <span class="tag">Workshop Moderation</span>
-                            <span class="tag">BPMN 2.0</span>
-                            <span class="tag">Incident Management</span>
-                            <span class="tag">Jira</span>
-                            <span class="tag">Confluence</span>
+                    <p class="chart-hint" id="chartHint"></p>
+                    <div class="skill-callout" id="skillCallout" hidden>
+                        <p class="skill-callout-text" id="skillCalloutText"></p>
+                        <div class="skill-callout-actions">
+                            <a class="btn btn-primary" href="#referenzen" data-action="goto-refs">Zu den Referenzen</a>
+                            <button type="button" class="btn btn-secondary" data-action="clear-skill">Auswahl aufheben</button>
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="timeline-item" id="ref-it-consultant">
-                    <div class="timeline-date">
-                        Mär 2025<br>Sep 2026
+            <section class="block" id="referenzen" aria-labelledby="referenzenTitle">
+                <div class="refs-head">
+                    <div>
+                        <p class="eyebrow">Projekte</p>
+                        <h2 class="block-title" id="referenzenTitle" tabindex="-1">Referenzen</h2>
+                        <p class="filter-text" id="filterText" aria-live="polite"></p>
                     </div>
-                    <div class="timeline-marker">
-                        <div class="timeline-dot"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">IT Consultant</h3>
-                        <p class="timeline-company">adesso SE, Kiel</p>
-                        <p class="timeline-description">
-                            Weiterentwicklung als IT Consultant mit Fokus auf Requirements Engineering, Business Process Analysis & 
-                            Modelling, Stakeholder Management und Workshop-Moderation in agilen Softwareprojekten.
-                        </p>
-                        <div class="timeline-tags">
-                            <span class="tag">Anforderungsmanagement</span>
-                            <span class="tag">Reporting</span>
-                            <span class="tag">Roadmap Planning</span>
-                            <span class="tag">Power BI</span>
-                            <span class="tag">BPMN 2.0</span>
-                            <span class="tag">LLM-Training</span>
-                            <span class="tag">Prompt Engineering</span>
-                            <span class="tag">Stakeholder Management</span>
-                            <span class="tag">Workshop Moderation</span>
-                            <span class="tag">Jira</span>
-                            <span class="tag">Confluence</span>
-                        </div>
-                    </div>
+                    <button type="button" class="btn btn-secondary" id="resetFilter" data-action="reset-filter" hidden>Filter zurücksetzen</button>
                 </div>
+                <p class="empty-state" id="emptyState" hidden>Zu dieser Auswahl gibt es noch keine Referenz.</p>
+                <div class="project-grid" id="projectGrid"></div>
+            </section>
 
-                <div class="timeline-item" id="ref-associate-it-consultant">
-                    <div class="timeline-date">
-                        Jul 2023<br>Mär 2025
-                    </div>
-                    <div class="timeline-marker">
-                        <div class="timeline-dot"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Associate IT Consultant</h3>
-                        <p class="timeline-company">adesso SE, Kiel</p>
-                        <p class="timeline-description">
-                            Einstieg als Associate IT Consultant bei adesso SE. Mitarbeit in verschiedenen Projekten im öffentlichen 
-                            Sektor mit Schwerpunkt auf Requirements Engineering, Prozessmodellierung und agiler Softwareentwicklung.
-                        </p>
-                        <div class="timeline-tags">
-                            <!-- Keine separaten Skills - gleiche Position wie IT Consultant -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            <section class="block" id="eigene-projekte" aria-labelledby="eigeneProjekteTitle">
+                <h2 class="block-title block-title-sm" id="eigeneProjekteTitle">Eigene Projekte</h2>
+                <ul class="side-projects" id="sideProjects"></ul>
+            </section>
 
-        <div class="section-divider"></div>
+            <p class="balance" id="balance"></p>
 
-        <!-- Ausbildung -->
-        <section class="section" id="ausbildung">
-            <div class="section-header">
-                <div class="section-title">AUSBILDUNG</div>
-                <h2 class="section-heading">Akademischer Werdegang</h2>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-item" id="ref-master">
-                    <div class="timeline-date">
-                        Okt 2020<br>Jul 2023
-                    </div>
-                    <div class="timeline-marker">
-                        <div class="timeline-dot"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">M.Sc. Economics</h3>
-                        <p class="timeline-company">Christian-Albrechts-Universität zu Kiel</p>
-                        <p class="timeline-description">
-                            • Nebenfach: Informatik<br>
-                            • Masterarbeit: "Old problem, new methods: applying machine learning techniques for German inflation 
-                            forecasting in a data rich environment"
-                        </p>
-                        <div class="timeline-tags">
-                            <span class="tag">Statistik & Ökonometrie</span>
-                            <span class="tag">Zeitreihenanalyse & Forecasting</span>
-                            <span class="tag">Matlab</span>
-                            <span class="tag">RStudio</span>
-                            <span class="tag">Stata</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">Regressionsanalysen</span>
-                            <span class="tag">Machine Learning</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item" id="ref-bachelor">
-                    <div class="timeline-date">
-                        Apr 2016<br>Sep 2019
-                    </div>
-                    <div class="timeline-marker">
-                        <div class="timeline-dot"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">B.Sc. Economics</h3>
-                        <p class="timeline-company">Universität zu Köln</p>
-                        <p class="timeline-description">
-                            • Schwerpunkte: Behavioral Economics, Game & Decision Theory<br>
-                            • Auslandssemester: Universität Zagreb, Kroatien (WiSe 2018/19)
-                        </p>
-                        <div class="timeline-tags">
-                            <span class="tag">Statistik & Ökonometrie</span>
-                            <span class="tag">Game Theory</span>
-                            <span class="tag">Behavioral Economics</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- Zertifikate -->
-        <section class="section" id="zertifikate">
-            <div class="section-header">
-                <div class="section-title">ZERTIFIKATE</div>
-                <h2 class="section-heading">Professionelle Qualifikationen</h2>
-            </div>
-
-            <div class="training-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Bezeichnung</th>
-                            <th>Aussteller</th>
-                            <th>Datum</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr id="ref-ireb">
-                            <td>IREB Certified Professional for Requirements Engineering (FL)</td>
-                            <td>International Requirements Engineering Board</td>
-                            <td>04-2024</td>
-                        </tr>
-                        <tr id="ref-psm">
-                            <td>Professional Scrum Master I</td>
-                            <td>Scrum.org</td>
-                            <td>02-2024</td>
-                        </tr>
-                        <tr id="ref-pspo">
-                            <td>Professional Scrum Product Owner I</td>
-                            <td>Scrum.org</td>
-                            <td>02-2024</td>
-                        </tr>
-                        <tr id="ref-python-bootcamp">
-                            <td>Python for Data Science and Machine Learning Bootcamp</td>
-                            <td>Udemy</td>
-                            <td>04-2025</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- Schulungen -->
-        <section class="section" id="schulungen">
-            <div class="section-header">
-                <div class="section-title">WEITERBILDUNG</div>
-                <h2 class="section-heading">Absolvierte Schulungen</h2>
-            </div>
-
-            <div class="training-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Bezeichnung</th>
-                            <th>Anbieter</th>
-                            <th>Datum</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr id="ref-genai">
-                            <td>GenAI Fundamentals for Project Work</td>
-                            <td>adesso</td>
-                            <td>11-2025</td>
-                        </tr>
-                        <tr id="ref-powerbi">
-                            <td>Power BI Masterclass</td>
-                            <td>Udemy</td>
-                            <td>10-2025</td>
-                        </tr>
-                        <tr id="ref-prompt-eng">
-                            <td>Generative AI: Prompt Engineering Basics</td>
-                            <td>IBM / Coursera</td>
-                            <td>11-2024</td>
-                        </tr>
-                        <tr id="ref-bpmn">
-                            <td>Business Process Model and Notation (BPMN)</td>
-                            <td>adesso</td>
-                            <td>04-2024</td>
-                        </tr>
-                        <tr id="ref-re-grundlagen">
-                            <td>Grundlagen Requirements Engineering nach IREB-Standard</td>
-                            <td>adesso</td>
-                            <td>01-2024</td>
-                        </tr>
-                        <tr id="ref-agile">
-                            <td>Agile Basics</td>
-                            <td>adesso</td>
-                            <td>11-2023</td>
-                        </tr>
-                        <tr id="ref-public">
-                            <td>Public Branchenschulung</td>
-                            <td>adesso</td>
-                            <td>09-2023</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- Studentische Erfahrung -->
-        <section class="section" id="studentische-erfahrung">
-            <div class="section-header">
-                <div class="section-title">PRAKTISCHE ERFAHRUNG</div>
-                <h2 class="section-heading">Studentische Tätigkeiten</h2>
-                <p class="section-subtitle">Praktika und Werkstudententätigkeiten</p>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-item" id="ref-dataport">
-                    <div class="timeline-date">
-                        Apr 2022<br>Apr 2023
-                    </div>
-                    <div class="timeline-marker">
-                        <div class="timeline-dot"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Werkstudent - Consulting Strategie & Innovation</h3>
-                        <p class="timeline-company">Dataport AöR, Kiel</p>
-                        <p class="timeline-description">
-                            • Reporting für Lenkungsgruppe und Projektmanagement Ausschuss<br>
-                            • Sicherung der Datenqualität auf SharePoint<br>
-                            • Analyse der Nutzerstatistiken des Serviceportals in Matomo Analytics
-                        </p>
-                        <div class="timeline-tags">
-                            <span class="tag">Reporting</span>
-                            <span class="tag">Matomo Analytics</span>
-                            <span class="tag">MS Excel</span>
-                            <span class="tag">SharePoint</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item" id="ref-dekra">
-                    <div class="timeline-date">
-                        Apr 2020<br>Jul 2020
-                    </div>
-                    <div class="timeline-marker">
-                        <div class="timeline-dot"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Praktikum - Strategisches Marketing</h3>
-                        <p class="timeline-company">DEKRA SE, Stuttgart</p>
-                        <p class="timeline-description">
-                            • Beobachtung und Analyse der Markt- und Wettbewerbssituation der DEKRA<br>
-                            • Auswertung und Aufbereitung der Datensätze in MS Excel<br>
-                            • Erstellung von Präsentationen für die Kommunikation der Ergebnisse
-                        </p>
-                        <div class="timeline-tags">
-                            <span class="tag">MS Excel</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item" id="ref-cleverbridge">
-                    <div class="timeline-date">
-                        Mär 2016<br>Mai 2018
-                    </div>
-                    <div class="timeline-marker">
-                        <div class="timeline-dot"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Werkstudent - Payment Processing</h3>
-                        <p class="timeline-company">Cleverbridge AG, Köln</p>
-                        <p class="timeline-description">
-                            • Prozessoptimierung in der Abteilung Payment Processing<br>
-                            • Verantwortlich für den Mahnprozess im E-Commerce und Softwarevertrieb
-                        </p>
-                        <div class="timeline-tags">
-                            <span class="tag">MS Excel</span>
-                            <span class="tag">Prozessautomatisierung</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
-
-        <!-- Hobbies & Persönliches -->
-        <section class="section" id="hobbies">
-            <div class="section-header">
-                <div class="section-title">PERSÖNLICHES</div>
-                <h2 class="section-heading">Hobbies & Persönliches</h2>
-            </div>
-
-            <!-- Tech Section -->
-            <h3 class="hobbies-section-title">💻 Tech</h3>
-            
-            <div class="hobby-card-full" id="ref-homelab">
-                <div class="hobby-header">
-                    <span class="hobby-icon">🏠</span>
-                    <h3 class="hobby-title">Home Lab & Self-Hosting</h3>
-                </div>
-                <p class="hobby-description">
-                    Betrieb eines Raspberry Pi Homeservers mit Docker-Containern.
-                </p>
-                <div class="hobby-tags">
-                    <span class="hobby-tag">Raspberry Pi</span>
-                    <span class="hobby-tag">Docker</span>
-                    <span class="hobby-tag">Linux</span>
-                </div>
-            </div>
-
-            <div class="hobby-card-full" id="ref-appdev">
-                <div class="hobby-header">
-                    <span class="hobby-icon">🛠️</span>
-                    <h3 class="hobby-title">Anwendungsentwicklung</h3>
-                </div>
-                <p class="hobby-description">
-                    Entwicklung von Anwendungen und Tools als Hobby-Projekte
-                </p>
-                <div class="hobby-project-inline">
-                    <span class="project-item">Handball Spielbericht-Generator</span>
-                    <span class="project-separator">•</span>
-                    <span class="project-item">Diese Website</span>
-                    <span class="project-separator">•</span>
-                    <span class="project-item">Immobilien-Wirtschaftlichkeitsanalyse</span>
-                    <span class="project-separator">•</span>
-                    <span class="project-more">...</span>
-                </div>
-                <div class="hobby-tags">
-                    <span class="hobby-tag">Python</span>
-                    <span class="hobby-tag">Streamlit</span>
-                    <span class="hobby-tag">Git</span>
-                    <span class="hobby-tag">Web Development</span>
-                    <span class="hobby-tag">KI/LLMs</span>
-                </div>
-            </div>
-
-            <!-- Sport & Outdoor Section -->
-            <h3 class="hobbies-section-title">⛵ Sport & Outdoor</h3>
-            <div class="hobby-card-full">
-                <ul class="sport-list">
-                    <li>🤾 Handball</li>
-                    <li>💪 Fitnesstraining</li>
-                    <li>⛵ Segeln</li>
-                    <li>🏄 Surfen</li>
-                    <li>🥾 Wandern</li>
-                </ul>
-            </div>
-        </section>
-
-        <div class="section-divider"></div>
+            <footer class="footer" id="footer"></footer>
+        </main>
     </div>
 
-    <!-- Modal -->
-    <div class="modal" id="skillModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">&times;</button>
-            <div class="modal-header">
-                <h2 class="modal-skill-name" id="modalSkillName"></h2>
-                <a class="modal-learn-more" id="modalLearnMore" target="_blank" rel="noopener noreferrer">Was ist das?</a>
-            </div>
-            <div class="modal-section-title">REFERENZEN</div>
-            <div id="modalReferences"></div>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Christoph Bröxkes | IT Consultant</p>
-    </footer>
-
+    <script src="data/profile.js"></script>
     <script src="data/skills.js"></script>
+    <script src="data/projects.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

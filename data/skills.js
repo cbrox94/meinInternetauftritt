@@ -1,14 +1,17 @@
-// Skill-Daten: zentrale Datenquelle für Skill-Diagramme und Skill-Modal.
+// Skill-Daten: zentrale Datenquelle für das Kompetenz-Diagramm.
+// - category: Key aus `categories` (unten)
 // - score: Gewichtung des Skills (bestimmt Balkenhöhe; Kategoriebalken = Summe der Scores)
-// - references[].title muss in referenceIdMap (unten) auf eine id="ref-..." in index.html zeigen
-// - references[].type: job | cert | training | edu | hobby
+// - label (optional): Anzeigename mit weichen Trennstellen (\u00AD) für lange Wörter
+// - references: Dokumentation der Score-Grundlage (wird nicht angezeigt).
+//   Die Zähler „N Referenzen“ kommen ausschließlich aus projects[*].skills (data/projects.js).
 
 // Skills Data
 const skillsData = {
     // Requirements Engineering & Business Analysis
     'anforderungsmanagement': {
         name: 'Anforderungsmanagement',
-        category: 'Requirements Engineering & Business Analysis',
+        label: 'Anforderungs\u00ADmanagement',
+        category: 'reqeng',
         score: 7,
         references: [
             { type: 'job', title: 'Business Analyst', company: 'S Broker', intensity: 1 },
@@ -19,7 +22,7 @@ const skillsData = {
     },
     'stakeholder': {
         name: 'Stakeholder Management',
-        category: 'Requirements Engineering & Business Analysis',
+        category: 'reqeng',
         score: 8,
         references: [
             { type: 'job', title: 'Business Analyst', company: 'S Broker', intensity: 1 },
@@ -30,7 +33,7 @@ const skillsData = {
     },
     'workshop': {
         name: 'Workshop Moderation',
-        category: 'Requirements Engineering & Business Analysis',
+        category: 'reqeng',
         score: 4,
         references: [
             { type: 'job', title: 'Business Analyst', company: 'S Broker', intensity: 1 },
@@ -39,7 +42,7 @@ const skillsData = {
     },
     'bpmn': {
         name: 'BPMN 2.0',
-        category: 'Requirements Engineering & Business Analysis',
+        category: 'reqeng',
         score: 7,
         references: [
             { type: 'job', title: 'Business Analyst', company: 'S Broker', intensity: 1 },
@@ -49,7 +52,8 @@ const skillsData = {
     },
     'kontext': {
         name: 'Kontextmodellierung',
-        category: 'Requirements Engineering & Business Analysis',
+        label: 'Kontext\u00ADmodellierung',
+        category: 'reqeng',
         score: 2,
         references: [
             { type: 'cert', title: 'IREB CPRE Foundation Level', company: 'IREB', intensity: 1 },
@@ -58,7 +62,7 @@ const skillsData = {
     },
     'uml': {
         name: 'UML-Modellierung',
-        category: 'Requirements Engineering & Business Analysis',
+        category: 'reqeng',
         score: 2,
         references: [
             { type: 'cert', title: 'IREB CPRE Foundation Level', company: 'IREB', intensity: 1 },
@@ -68,7 +72,7 @@ const skillsData = {
     // Data & Analytics
     'excel': {
         name: 'MS Excel',
-        category: 'Data & Analytics',
+        category: 'data',
         score: 9,
         references: [
             { type: 'job', title: 'Werkstudent Dataport', company: 'Dataport AöR', intensity: 3 },
@@ -78,7 +82,7 @@ const skillsData = {
     },
     'python': {
         name: 'Python',
-        category: 'Data & Analytics',
+        category: 'data',
         score: 6,
         references: [
             { type: 'edu', title: 'M.Sc. Economics', company: 'Uni Kiel', intensity: 3 },
@@ -87,7 +91,8 @@ const skillsData = {
     },
     'statistik': {
         name: 'Statistik & Ökonometrie',
-        category: 'Data & Analytics',
+        label: 'Statistik & Öko\u00ADnometrie',
+        category: 'data',
         score: 4,
         references: [
             { type: 'edu', title: 'M.Sc. Economics', company: 'Uni Kiel', intensity: 3 },
@@ -96,7 +101,7 @@ const skillsData = {
     },
     'powerbi': {
         name: 'Power BI',
-        category: 'Data & Analytics',
+        category: 'data',
         score: 4,
         references: [
             { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 1 },
@@ -105,7 +110,8 @@ const skillsData = {
     },
     'zeitreihe': {
         name: 'Zeitreihenanalyse & Forecasting',
-        category: 'Data & Analytics',
+        label: 'Zeitreihen\u00ADanalyse & Forecasting',
+        category: 'data',
         score: 1,
         references: [
             { type: 'edu', title: 'M.Sc. Economics - Masterarbeit', company: 'Uni Kiel', intensity: 1 }
@@ -113,7 +119,7 @@ const skillsData = {
     },
     'matlab': {
         name: 'Matlab',
-        category: 'Data & Analytics',
+        category: 'data',
         score: 3,
         references: [
             { type: 'edu', title: 'M.Sc. Economics', company: 'Uni Kiel', intensity: 3 }
@@ -121,7 +127,8 @@ const skillsData = {
     },
     'regression': {
         name: 'Regressionsanalysen',
-        category: 'Data & Analytics',
+        label: 'Regressions\u00ADanalysen',
+        category: 'data',
         score: 1,
         references: [
             { type: 'edu', title: 'M.Sc. Economics', company: 'Uni Kiel', intensity: 1 }
@@ -129,7 +136,7 @@ const skillsData = {
     },
     'ml': {
         name: 'Machine Learning',
-        category: 'Data & Analytics',
+        category: 'data',
         score: 1,
         references: [
             { type: 'edu', title: 'M.Sc. Economics', company: 'Uni Kiel', intensity: 1 }
@@ -137,7 +144,7 @@ const skillsData = {
     },
     'matomo': {
         name: 'Matomo Analytics',
-        category: 'Data & Analytics',
+        category: 'data',
         score: 1,
         references: [
             { type: 'job', title: 'Werkstudent', company: 'Dataport AöR', intensity: 1 }
@@ -145,7 +152,7 @@ const skillsData = {
     },
     'rstudio': {
         name: 'RStudio',
-        category: 'Data & Analytics',
+        category: 'data',
         score: 1,
         references: [
             { type: 'edu', title: 'M.Sc. Economics', company: 'Uni Kiel', intensity: 1 }
@@ -153,7 +160,7 @@ const skillsData = {
     },
     'stata': {
         name: 'Stata',
-        category: 'Data & Analytics',
+        category: 'data',
         score: 1,
         references: [
             { type: 'edu', title: 'M.Sc. Economics', company: 'Uni Kiel', intensity: 1 }
@@ -162,7 +169,7 @@ const skillsData = {
     // Projektmanagement & Agile
     'scrum': {
         name: 'Scrum Framework',
-        category: 'Projektmanagement & Agile Methoden',
+        category: 'pm',
         score: 6,
         references: [
             { type: 'cert', title: 'Professional Scrum Master I', company: 'Scrum.org', intensity: 3 },
@@ -171,7 +178,7 @@ const skillsData = {
     },
     'backlog': {
         name: 'Product Backlog Management',
-        category: 'Projektmanagement & Agile Methoden',
+        category: 'pm',
         score: 3,
         references: [
             { type: 'cert', title: 'Professional Scrum Product Owner I', company: 'Scrum.org', intensity: 3 }
@@ -179,7 +186,7 @@ const skillsData = {
     },
     'jira': {
         name: 'Jira',
-        category: 'Projektmanagement & Agile Methoden',
+        category: 'pm',
         score: 4,
         references: [
             { type: 'job', title: 'Business Analyst', company: 'S Broker', intensity: 1 },
@@ -188,7 +195,7 @@ const skillsData = {
     },
     'confluence': {
         name: 'Confluence',
-        category: 'Projektmanagement & Agile Methoden',
+        category: 'pm',
         score: 4,
         references: [
             { type: 'job', title: 'Business Analyst', company: 'S Broker', intensity: 1 },
@@ -197,7 +204,7 @@ const skillsData = {
     },
     'reporting': {
         name: 'Reporting',
-        category: 'Projektmanagement & Agile Methoden',
+        category: 'pm',
         score: 6,
         references: [
             { type: 'job', title: 'Werkstudent - Consulting Strategie & Innovation', company: 'Dataport AöR', intensity: 3 },
@@ -206,7 +213,7 @@ const skillsData = {
     },
     'roadmap': {
         name: 'Roadmap Planning',
-        category: 'Projektmanagement & Agile Methoden',
+        category: 'pm',
         score: 3,
         references: [
             { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 }
@@ -214,7 +221,7 @@ const skillsData = {
     },
     'incident': {
         name: 'Incident Management',
-        category: 'Projektmanagement & Agile Methoden',
+        category: 'pm',
         score: 1,
         references: [
             { type: 'job', title: 'Business Analyst', company: 'S Broker', intensity: 1 }
@@ -223,7 +230,7 @@ const skillsData = {
     // Technical Skills
     'prompt': {
         name: 'Prompt Engineering',
-        category: 'Technische Skills',
+        category: 'tech',
         score: 3,
         references: [
             { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 1 },
@@ -232,7 +239,7 @@ const skillsData = {
     },
     'sharepoint': {
         name: 'SharePoint',
-        category: 'Technische Skills',
+        category: 'tech',
         score: 2,
         references: [
             { type: 'job', title: 'Werkstudent', company: 'Dataport AöR', intensity: 2 }
@@ -240,7 +247,8 @@ const skillsData = {
     },
     'prozessauto': {
         name: 'Prozessautomatisierung',
-        category: 'Technische Skills',
+        label: 'Prozess\u00ADautomatisierung',
+        category: 'tech',
         score: 2,
         references: [
             { type: 'job', title: 'Werkstudent', company: 'Cleverbridge AG', intensity: 2 }
@@ -248,7 +256,7 @@ const skillsData = {
     },
     'llm': {
         name: 'LLM-Training',
-        category: 'Technische Skills',
+        category: 'tech',
         score: 1,
         references: [
             { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 1 }
@@ -256,7 +264,7 @@ const skillsData = {
     },
     'docker': {
         name: 'Docker',
-        category: 'Technische Skills',
+        category: 'tech',
         score: 1,
         references: [
             { type: 'hobby', title: 'Home Lab & Self-Hosting', company: 'Privat', intensity: 1 }
@@ -264,7 +272,7 @@ const skillsData = {
     },
     'linux': {
         name: 'Linux',
-        category: 'Technische Skills',
+        category: 'tech',
         score: 1,
         references: [
             { type: 'hobby', title: 'Home Lab & Self-Hosting', company: 'Privat', intensity: 1 }
@@ -272,7 +280,7 @@ const skillsData = {
     },
     'webdev': {
         name: 'Web Development',
-        category: 'Technische Skills',
+        category: 'tech',
         score: 1,
         references: [
             { type: 'hobby', title: 'Anwendungsentwicklung', company: 'Privat', intensity: 1 }
@@ -280,7 +288,7 @@ const skillsData = {
     },
     'git': {
         name: 'Git',
-        category: 'Technische Skills',
+        category: 'tech',
         score: 1,
         references: [
             { type: 'hobby', title: 'Anwendungsentwicklung', company: 'Privat', intensity: 1 }
@@ -288,7 +296,7 @@ const skillsData = {
     },
     'streamlit': {
         name: 'Streamlit',
-        category: 'Technische Skills',
+        category: 'tech',
         score: 2,
         references: [
             { type: 'hobby', title: 'Anwendungsentwicklung', company: 'Privat', intensity: 2 }
@@ -296,49 +304,10 @@ const skillsData = {
     }
 };
 
-// Category keys -> category names in skillsData
-const categoryMap = {
-    'data': 'Data & Analytics',
-    'reqeng': 'Requirements Engineering & Business Analysis',
-    'pm': 'Projektmanagement & Agile Methoden',
-    'tech': 'Technische Skills'
-};
-
-// Referenztitel (references[].title) -> id des Abschnitts in index.html
-const referenceIdMap = {
-    // Jobs
-    'Business Analyst': 'ref-sbroker',
-    'IT Consultant': 'ref-it-consultant',
-    'Associate IT Consultant': 'ref-associate-it-consultant',
-    'Werkstudent Dataport': 'ref-dataport',
-    'Werkstudent - Consulting Strategie & Innovation': 'ref-dataport',
-    'Praktikum': 'ref-dekra',
-    'Praktikum - Strategisches Marketing': 'ref-dekra',
-    'Werkstudent': 'ref-cleverbridge',
-    'Werkstudent - Payment Processing': 'ref-cleverbridge',
-    
-    // Education
-    'M.Sc. Economics': 'ref-master',
-    'M.Sc. Economics - Masterarbeit': 'ref-master',
-    'B.Sc. Economics': 'ref-bachelor',
-    
-    // Certificates
-    'IREB CPRE Foundation Level': 'ref-ireb',
-    'Professional Scrum Master I': 'ref-psm',
-    'Professional Scrum Product Owner I': 'ref-pspo',
-    'Python for Data Science Bootcamp': 'ref-python-bootcamp',
-    
-    // Trainings
-    'GenAI Fundamentals for Project Work': 'ref-genai',
-    'Power BI Masterclass': 'ref-powerbi',
-    'Prompt Engineering Basics': 'ref-prompt-eng',
-    'Business Process Model and Notation': 'ref-bpmn',
-    'Grundlagen Requirements Engineering nach IREB-Standard': 'ref-re-grundlagen',
-    'Grundlagen Requirements Engineering': 'ref-re-grundlagen',
-    'Agile Basics': 'ref-agile',
-    'Public Branchenschulung': 'ref-public',
-    
-    // Hobbies
-    'Home Lab & Self-Hosting': 'ref-homelab',
-    'Anwendungsentwicklung': 'ref-appdev'
+// Kategorien (Key = skillsData[*].category). color verweist auf die CSS-Variablen in css/style.css.
+const categories = {
+    data: { name: 'Data & Analytics', barLabel: 'Data &\nAnalytics', color: 'var(--cat-data)' },
+    reqeng: { name: 'Requirements Engineering & Business Analysis', barLabel: 'Requirements\nEngineering', color: 'var(--cat-reqeng)' },
+    pm: { name: 'Projektmanagement & Agile Methoden', barLabel: 'Projekt-\nmanagement', color: 'var(--cat-pm)' },
+    tech: { name: 'Technische Skills', barLabel: 'Technische\nSkills', color: 'var(--cat-tech)' }
 };
