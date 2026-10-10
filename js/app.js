@@ -101,7 +101,8 @@ function generateMultiCategorySkillBars(categories) {
             .replace('Matomo Analytics', 'Matomo<br>Analytics')
             .replace('Statistik & Ökonometrie', 'Statistik &<br>Ökonometrie')
             .replace('Scrum Framework', 'Scrum<br>Framework')
-            .replace('Prompt Engineering', 'Prompt<br>Engineering');
+            .replace('Prompt Engineering', 'Prompt<br>Engineering')
+            .replace('Incident Management', 'Incident<br>Management');
         
         barItem.innerHTML = `
             <div class="skill-bar-fill" data-height="${heightPercent}%" style="background: ${colorMap[skill.category]}; height: 0%;"></div>

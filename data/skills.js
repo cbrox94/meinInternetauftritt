@@ -9,8 +9,9 @@ const skillsData = {
     'anforderungsmanagement': {
         name: 'Anforderungsmanagement',
         category: 'Requirements Engineering & Business Analysis',
-        score: 6,
+        score: 7,
         references: [
+            { type: 'job', title: 'Business Analyst', company: 'S Broker', intensity: 1 },
             { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 },
             { type: 'cert', title: 'IREB CPRE Foundation Level', company: 'IREB', intensity: 3 },
             { type: 'training', title: 'Grundlagen Requirements Engineering nach IREB-Standard', company: 'adesso', intensity: 3 }
@@ -19,8 +20,9 @@ const skillsData = {
     'stakeholder': {
         name: 'Stakeholder Management',
         category: 'Requirements Engineering & Business Analysis',
-        score: 7,
+        score: 8,
         references: [
+            { type: 'job', title: 'Business Analyst', company: 'S Broker', intensity: 1 },
             { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 },
             { type: 'cert', title: 'IREB CPRE Foundation Level', company: 'IREB', intensity: 2 },
             { type: 'training', title: 'Grundlagen Requirements Engineering', company: 'adesso', intensity: 2 }
@@ -29,16 +31,18 @@ const skillsData = {
     'workshop': {
         name: 'Workshop Moderation',
         category: 'Requirements Engineering & Business Analysis',
-        score: 3,
+        score: 4,
         references: [
+            { type: 'job', title: 'Business Analyst', company: 'S Broker', intensity: 1 },
             { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 }
         ]
     },
     'bpmn': {
         name: 'BPMN 2.0',
         category: 'Requirements Engineering & Business Analysis',
-        score: 6,
+        score: 7,
         references: [
+            { type: 'job', title: 'Business Analyst', company: 'S Broker', intensity: 1 },
             { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 },
             { type: 'training', title: 'Business Process Model and Notation', company: 'adesso', intensity: 3 }
         ]
@@ -176,16 +180,18 @@ const skillsData = {
     'jira': {
         name: 'Jira',
         category: 'Projektmanagement & Agile Methoden',
-        score: 3,
+        score: 4,
         references: [
+            { type: 'job', title: 'Business Analyst', company: 'S Broker', intensity: 1 },
             { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 }
         ]
     },
     'confluence': {
         name: 'Confluence',
         category: 'Projektmanagement & Agile Methoden',
-        score: 3,
+        score: 4,
         references: [
+            { type: 'job', title: 'Business Analyst', company: 'S Broker', intensity: 1 },
             { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 }
         ]
     },
@@ -204,6 +210,14 @@ const skillsData = {
         score: 3,
         references: [
             { type: 'job', title: 'IT Consultant', company: 'adesso SE', intensity: 3 }
+        ]
+    },
+    'incident': {
+        name: 'Incident Management',
+        category: 'Projektmanagement & Agile Methoden',
+        score: 1,
+        references: [
+            { type: 'job', title: 'Business Analyst', company: 'S Broker', intensity: 1 }
         ]
     },
     // Technical Skills
@@ -293,6 +307,7 @@ const categoryMap = {
 // Referenztitel (references[].title) -> id des Abschnitts in index.html
 const referenceIdMap = {
     // Jobs
+    'Business Analyst': 'ref-sbroker',
     'IT Consultant': 'ref-it-consultant',
     'Associate IT Consultant': 'ref-associate-it-consultant',
     'Werkstudent Dataport': 'ref-dataport',
