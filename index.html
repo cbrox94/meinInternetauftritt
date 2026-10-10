@@ -1109,19 +1109,19 @@
                 <!-- Vertical Bar Chart -->
                 <div class="vertical-bars-wrapper" id="categoryBars">
                     <div class="vertical-bar-item" onclick="filterByCategory('data')">
-                        <div class="vertical-bar-fill bar-data" data-height="100%"></div>
+                        <div class="vertical-bar-fill bar-data" data-category="data"></div>
                         <div class="vertical-bar-label">Data &<br>Analytics</div>
                     </div>
                     <div class="vertical-bar-item" onclick="filterByCategory('reqeng')">
-                        <div class="vertical-bar-fill bar-reqeng" data-height="90.6%"></div>
+                        <div class="vertical-bar-fill bar-reqeng" data-category="reqeng"></div>
                         <div class="vertical-bar-label">Requirements<br>Engineering</div>
                     </div>
                     <div class="vertical-bar-item" onclick="filterByCategory('pm')">
-                        <div class="vertical-bar-fill bar-pm" data-height="75%"></div>
+                        <div class="vertical-bar-fill bar-pm" data-category="pm"></div>
                         <div class="vertical-bar-label">Projekt-<br>management</div>
                     </div>
                     <div class="vertical-bar-item" onclick="filterByCategory('tech')">
-                        <div class="vertical-bar-fill bar-tech" data-height="43.8%"></div>
+                        <div class="vertical-bar-fill bar-tech" data-category="tech"></div>
                         <div class="vertical-bar-label">Technische<br>Skills</div>
                     </div>
                 </div>
@@ -1457,7 +1457,7 @@
             <!-- Tech Section -->
             <h3 class="hobbies-section-title">💻 Tech</h3>
             
-            <div class="hobby-card-full">
+            <div class="hobby-card-full" id="ref-homelab">
                 <div class="hobby-header">
                     <span class="hobby-icon">🏠</span>
                     <h3 class="hobby-title">Home Lab & Self-Hosting</h3>
@@ -1472,7 +1472,7 @@
                 </div>
             </div>
 
-            <div class="hobby-card-full">
+            <div class="hobby-card-full" id="ref-appdev">
                 <div class="hobby-header">
                     <span class="hobby-icon">🛠️</span>
                     <h3 class="hobby-title">Anwendungsentwicklung</h3>
@@ -1811,6 +1811,14 @@
             }
         };
 
+        // Category keys -> category names in skillsData
+        const categoryMap = {
+            'data': 'Data & Analytics',
+            'reqeng': 'Requirements Engineering & Business Analysis',
+            'pm': 'Projektmanagement & Agile Methoden',
+            'tech': 'Technische Skills'
+        };
+
         // Filter by Category - Multi-select support
         let selectedCategories = ['all'];
 
@@ -1876,13 +1884,6 @@
             skillBarsContainer.classList.add('active');
             
             // Filter skills by selected categories
-            const categoryMap = {
-                'data': 'Data & Analytics',
-                'reqeng': 'Requirements Engineering & Business Analysis',
-                'pm': 'Projektmanagement & Agile Methoden',
-                'tech': 'Technische Skills'
-            };
-            
             const categoryNames = categories.map(cat => categoryMap[cat]);
             
             const filteredSkills = Object.entries(skillsData)
@@ -1988,8 +1989,13 @@
                 'Prompt Engineering Basics': 'ref-prompt-eng',
                 'Business Process Model and Notation': 'ref-bpmn',
                 'Grundlagen Requirements Engineering nach IREB-Standard': 'ref-re-grundlagen',
+                'Grundlagen Requirements Engineering': 'ref-re-grundlagen',
                 'Agile Basics': 'ref-agile',
-                'Public Branchenschulung': 'ref-public'
+                'Public Branchenschulung': 'ref-public',
+                
+                // Hobbies
+                'Home Lab & Self-Hosting': 'ref-homelab',
+                'Anwendungsentwicklung': 'ref-appdev'
             };
             
             const referencesHTML = skill.references.map(ref => {
@@ -1997,7 +2003,8 @@
                     'job': 'Berufserfahrung',
                     'cert': 'Zertifikat',
                     'training': 'Schulung',
-                    'edu': 'Studium'
+                    'edu': 'Studium',
+                    'hobby': 'Hobby'
                 }[ref.type] || 'Referenz';
                 
                 // Get specific ID for this reference
@@ -2049,6 +2056,20 @@
         // Animate vertical bars on scroll
         function animateVerticalBars() {
             const bars = document.querySelectorAll('.vertical-bar-fill');
+
+            // Category height = sum of skill scores, relative to the largest category
+            const totals = {};
+            Object.entries(categoryMap).forEach(([key, name]) => {
+                totals[key] = Object.values(skillsData)
+                    .filter(skill => skill.category === name)
+                    .reduce((sum, skill) => sum + skill.score, 0);
+            });
+            const maxTotal = Math.max(...Object.values(totals));
+            bars.forEach(bar => {
+                const percent = (totals[bar.dataset.category] / maxTotal) * 100;
+                bar.setAttribute('data-height', `${percent}%`);
+            });
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
