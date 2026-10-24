@@ -20,12 +20,11 @@ const profile = {
     // Filterbare Stationen (Reihenfolge = Anzeige); projects[*].station verweist auf id
     stations: [
         { id: 'sbroker', title: 'Business Analyst', org: 'S Broker AG & Co. KG', orgShort: 'S Broker', location: 'Wiesbaden', badge: 'S Broker', from: '2026-10', to: null },
-        { id: 'adesso-itc', title: 'IT Consultant', org: 'adesso SE', orgShort: 'adesso SE', location: 'Kiel', badge: 'adesso · IT Consultant', from: '2025-03', to: '2026-09' },
-        { id: 'adesso-aitc', title: 'Associate IT Consultant', org: 'adesso SE', orgShort: 'adesso SE', location: 'Kiel', badge: 'adesso · Associate', from: '2023-07', to: '2025-03' }
+        { id: 'adesso', title: 'IT Consultant', org: 'adesso SE', orgShort: 'adesso SE', location: 'Kiel', badge: 'adesso SE', from: '2023-07', to: '2026-09' },
+        { id: 'dataport', title: 'Werkstudent Consulting Strategie & Innovation', org: 'Dataport AöR', orgShort: 'Dataport AöR', location: 'Kiel', badge: 'Dataport · Werkstudent', from: '2022-04', to: '2023-04' }
     ],
     // Nicht filterbar, aufklappbar unter den Stationen
     studentJobs: [
-        { title: 'Werkstudent Consulting Strategie & Innovation', org: 'Dataport AöR', location: 'Kiel', from: '2022-04', to: '2023-04' },
         { title: 'Praktikum Strategisches Marketing', org: 'DEKRA SE', location: 'Stuttgart', from: '2020-04', to: '2020-07' },
         { title: 'Werkstudent Payment Processing', org: 'Cleverbridge AG', location: 'Köln', from: '2016-03', to: '2018-05' }
     ],

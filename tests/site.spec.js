@@ -270,8 +270,8 @@ test('Aufklapplisten und Akkordeons in der Randspalte', async ({ page, isMobile 
   await expect(page.locator('#studentList')).toBeHidden();
   await students.click();
   await expect(students).toHaveAttribute('aria-expanded', 'true');
-  await expect(page.locator('#studentList li')).toHaveCount(3);
-  await expect(page.locator('#studentList')).toContainText('Dataport AöR · 2022 – 2023');
+  await expect(page.locator('#studentList li')).toHaveCount(await page.evaluate(() => profile.studentJobs.length));
+  await expect(page.locator('#studentList')).toContainText('Cleverbridge AG · 2016 – 2018');
   await students.click();
   await expect(students).toHaveAttribute('aria-expanded', 'false');
   await expect(page.locator('#studentList')).toBeHidden();
