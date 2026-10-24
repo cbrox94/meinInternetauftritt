@@ -61,5 +61,19 @@ const projects = [
         result: 'Zentrale KPI-Sicht für die Steuerung, wöchentliche Berichte für Endkunde und Projektleitende ohne manuellen Aufwand und ein Postfach, dessen Eingänge automatisch sortiert und teilweise direkt bearbeitet werden.',
         team: 'PMO des Rahmenvertrags; Datenbasis in MS Lists und Excel',
         skills: ['reporting', 'powerbi', 'prozessauto', 'excel', 'prompt']
+    },
+    {
+        id: 'ozg-reporting-nutzungsanalyse',
+        station: 'dataport',
+        title: 'Reporting und Nutzungsanalyse in der OZG-Umsetzung',
+        from: '2022-04', to: '2023-04',
+        context: 'Öffentliche Verwaltung, OZG-Umsetzung für vier Länder',
+        role: 'Werkstudent im PMO (Kompetenzteam Reporting)',
+        summary: 'Das PMO eines Programms zur OZG-Umsetzung mit Fortschrittsreports für Management-Gremien unterstützt und Online-Dienste für die Nutzungsanalyse an Matomo angebunden.',
+        situation: 'Das Programm bündelte die Umsetzung des Onlinezugangsgesetzes für vier Länder; bis Ende 2023 entstanden mehr als 450 Online-Dienste aus acht Themenfeldern. Steuerung und Gremien brauchten einen verlässlichen Überblick über den Fortschritt – und Erkenntnisse darüber, wie die Dienste tatsächlich genutzt werden.',
+        tasks: 'Mitarbeit im Kompetenzteam Reporting des PMO; Fortschrittsreports für Gremien auf Managementebene; Evaluierung und Sicherung der Datenqualität auf SharePoint; Anbindung verschiedener Online-Dienste an Matomo Analytics und Auswertung des Nutzerverhaltens.',
+        result: 'Für die angebundenen Online-Dienste wurde messbar, wie oft sie aufgerufen werden, wie lange Nutzende im Durchschnitt auf den einzelnen Seiten der Antragsstrecken verweilen und wie oft – und an welcher Stelle der Antragsstrecke genau – sie den Antrag vorzeitig abbrechen.',
+        team: 'PMO-Kompetenzteam Reporting',
+        skills: ['reporting', 'matomo', 'sharepoint', 'excel']
     }
 ];
