@@ -5,8 +5,9 @@ Persönliche Portfolio-Website von Christoph Bröxkes – IT Consultant, Economi
 **Live:** https://cbrox94.github.io/meinInternetauftritt/
 
 Statische Seite (HTML, CSS, JavaScript) ohne Build-Schritt, veröffentlicht über GitHub Pages
-vom Branch `main`. Herzstück ist eine interaktive Skill-Visualisierung: Kategorien filtern,
-Skills anklicken und direkt zur passenden Station im Lebenslauf springen.
+vom Branch `main`. Im Mittelpunkt stehen Kompetenzen und Projekt-Referenzen: Ein Klick auf
+einen Skill im Balkendiagramm oder auf eine Station in der Randspalte filtert die Referenzen.
+Der Lebenslauf (Stationen, Ausbildung, Zertifikate, Schulungen) steht kompakt in der Randspalte.
 
 ## Lokal ansehen
 
@@ -27,10 +28,12 @@ Beim ersten Mal außerhalb von Claude Code zusätzlich: `npx playwright install 
 
 ## Struktur
 
-- `index.html` – Seiteninhalt
+- `index.html` – Seitengerüst
 - `css/style.css` – Styling
-- `data/skills.js` – Skills, Kategorien und Referenz-Zuordnung
-- `js/app.js` – Interaktivität
+- `data/profile.js` – Profil, Kontakt, Lebenslauf, Eigene Projekte
+- `data/skills.js` – Skills und Kategorien
+- `data/projects.js` – Referenzen (Projekte)
+- `js/app.js` – Rendering und Interaktivität
 - `tests/` – automatisierte Tests
 
 Hinweise für die Arbeit mit Claude Code stehen in [`CLAUDE.md`](CLAUDE.md).
