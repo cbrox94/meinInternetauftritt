@@ -299,6 +299,20 @@ button {
     color: var(--muted);
 }
 
+/* Filterbare studentische Station in der eingerückten Liste */
+.station-compact {
+    padding: 8px 10px;
+}
+
+.station-compact .station-title {
+    font-size: 13px;
+}
+
+.station-compact .station-count,
+.station-compact .station-meta {
+    font-size: 12px;
+}
+
 .sub-list {
     display: grid;
     gap: 10px;

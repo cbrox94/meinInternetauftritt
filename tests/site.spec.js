@@ -270,7 +270,7 @@ test('Aufklapplisten und Akkordeons in der Randspalte', async ({ page, isMobile 
   await expect(page.locator('#studentList')).toBeHidden();
   await students.click();
   await expect(students).toHaveAttribute('aria-expanded', 'true');
-  await expect(page.locator('#studentList li')).toHaveCount(await page.evaluate(() => profile.studentJobs.length));
+  await expect(page.locator('#studentList li')).toHaveCount(await page.evaluate(() => profile.studentJobs.length + profile.stations.filter((st) => st.student).length));
   await expect(page.locator('#studentList')).toContainText('Cleverbridge AG · 2016 – 2018');
   await students.click();
   await expect(students).toHaveAttribute('aria-expanded', 'false');
@@ -294,6 +294,24 @@ test('Aufklapplisten und Akkordeons in der Randspalte', async ({ page, isMobile 
     await page.locator('#groupStations summary').click();
     await expect(page.locator('#stationList')).toBeHidden();
   }
+});
+
+test('Studentische Station ist erst nach dem Aufklappen sichtbar und filtert', async ({ page }) => {
+  await openPage(page);
+  const student = await page.evaluate(() => profile.stations.find((st) => st.student));
+  expect(student).toBeTruthy();
+  await openGroup(page, 'groupStations');
+  await expect(page.locator(`#stationList [data-station="${student.id}"]`)).toHaveCount(0);
+  const button = page.locator(`#studentList [data-station="${student.id}"]`);
+  await expect(button).toBeHidden();
+
+  await page.locator('#toggleStudents').click();
+  await expect(button).toBeVisible();
+  await button.click();
+  await expect(button).toHaveAttribute('aria-pressed', 'true');
+  const expected = await page.evaluate((id) => projects.filter((p) => p.station === id).map((p) => p.id), student.id);
+  expect((await shownProjectIds(page)).sort()).toEqual([...expected].sort());
+  await expect(page.locator('#filterText')).toContainText(student.title);
 });
 
 test('Layout: Randspalte sticky (Desktop) bzw. oben (Mobil), kein horizontales Scrollen', async ({ page, isMobile }) => {

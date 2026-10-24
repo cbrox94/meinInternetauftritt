@@ -35,7 +35,9 @@ Event-Delegation mit `data-action="…"` (z. B. `pick-skill`, `pick-station`, `p
 - `skillsData[key]`: `name`, `category` (Key aus `categories`), `score`, optional `label` mit
   weichem Trennzeichen `­` für lange Wörter, `references` (nur Dokumentation der
   Score-Grundlage, wird nicht angezeigt).
-- `profile.stations[]`: filterbare Stationen mit `id`, `title`, `org`, `orgShort`, `badge`, `from`, `to`.
+- `profile.stations[]`: filterbare Stationen mit `id`, `title`, `org`, `orgShort`, `badge`, `from`, `to`;
+  optional `student: true` → weiterhin filterbar, aber nur in der aufklappbaren Liste
+  „Studentische Tätigkeiten“ angezeigt (z. B. Dataport).
 - `projects[]`: `id` (eindeutig, kebab-case), `station` (id aus `profile.stations`), `title`,
   `from`, `to`, `context`, `role`, `summary`, optional `situation`, `tasks`, `result`, `team`,
   `skills` (Keys aus `skillsData`).

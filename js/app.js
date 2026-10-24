@@ -132,23 +132,39 @@ function renderStatic() {
         )
     );
 
-    // Stationen (Buttons; Zähler/aktiv werden in render() aktualisiert)
-    $('#stationList').append(...profile.stations.map((station) => h('li', {},
-        h('button', { type: 'button', class: 'station', 'aria-pressed': 'false', data: { action: 'pick-station', station: station.id, focusKey: `station:${station.id}` } },
-            h('span', { class: 'station-title', text: station.title }),
-            h('span', { class: 'station-count' }),
-            h('span', { class: 'station-meta', text: `${station.orgShort} · ${formatRange(station.from, station.to)}` })
-        )
-    )));
-    $('#metaStations').textContent = `${profile.stations.length} + ${profile.studentJobs.length} studentisch`;
+    // Stationen (Buttons; Zähler/aktiv werden in render() aktualisiert).
+    // student: true → filterbar, aber in der aufklappbaren Liste der studentischen Tätigkeiten
+    const stationButton = (station, compact) => h('button', {
+        type: 'button', class: compact ? 'station station-compact' : 'station', 'aria-pressed': 'false',
+        data: { action: 'pick-station', station: station.id, focusKey: `station:${station.id}` }
+    },
+        h('span', { class: 'station-title', text: station.title }),
+        h('span', { class: 'station-count' }),
+        h('span', {
+            class: 'station-meta',
+            text: compact ? `${station.orgShort} · ${formatYears(station.from, station.to)}` : `${station.orgShort} · ${formatRange(station.from, station.to)}`
+        })
+    );
+    const mainStations = profile.stations.filter((s) => !s.student);
+    const studentStations = profile.stations.filter((s) => s.student);
+    $('#stationList').append(...mainStations.map((station) => h('li', {}, stationButton(station, false))));
+
+    const studentEntries = [
+        ...studentStations.map((station) => ({ from: station.from, node: stationButton(station, true) })),
+        ...profile.studentJobs.map((job) => ({
+            from: job.from,
+            node: [
+                h('p', { class: 'sub-title', text: job.title }),
+                h('p', { class: 'sub-meta', text: `${job.org} · ${formatYears(job.from, job.to)}` })
+            ]
+        }))
+    ].sort((a, b) => b.from.localeCompare(a.from));
+    $('#studentList').append(...studentEntries.map((entry) => h('li', {}, entry.node)));
+    $('#metaStations').textContent = `${mainStations.length} + ${studentEntries.length} studentisch`;
 
     setupToggleList('#toggleStudents',
-        `Studentische Tätigkeiten (${profile.studentJobs.length}) anzeigen`,
+        `Studentische Tätigkeiten (${studentEntries.length}) anzeigen`,
         'Studentische Tätigkeiten ausblenden');
-    $('#studentList').append(...profile.studentJobs.map((job) => h('li', {},
-        h('p', { class: 'sub-title', text: job.title }),
-        h('p', { class: 'sub-meta', text: `${job.org} · ${formatYears(job.from, job.to)}` })
-    )));
 
     $('#educationList').append(...profile.education.map((edu) => h('li', { title: edu.school },
         h('p', { class: 'item-title', text: edu.degree }),
@@ -374,7 +390,7 @@ function render() {
     const active = document.activeElement;
     const focusKey = active && active.dataset ? active.dataset.focusKey : null;
 
-    document.querySelectorAll('#stationList .station').forEach((button) => {
+    document.querySelectorAll('.sidebar .station').forEach((button) => {
         const id = button.dataset.station;
         button.setAttribute('aria-pressed', String(state.station === id));
         button.querySelector('.station-count').textContent = formatRefs(countProjectsForStation(id, state));

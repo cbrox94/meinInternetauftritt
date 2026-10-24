@@ -17,11 +17,12 @@ const profile = {
         'Studierter Ökonom (Economics M.Sc.) mit Nebenfach Informatik und Schwerpunkt in Statistik & Ökonometrie.',
         'Seit Oktober 2026 als Business Analyst bei S Broker in Wiesbaden. Zuvor drei Jahre IT Consulting bei adesso SE, eingesetzt vor allem als Requirements Engineer und Product Owner in agilen Softwareprojekten.'
     ],
-    // Filterbare Stationen (Reihenfolge = Anzeige); projects[*].station verweist auf id
+    // Filterbare Stationen (Reihenfolge = Anzeige); projects[*].station verweist auf id.
+    // student: true → filterbar, aber unter „Studentische Tätigkeiten“ (aufklappbar) angezeigt
     stations: [
         { id: 'sbroker', title: 'Business Analyst', org: 'S Broker AG & Co. KG', orgShort: 'S Broker', location: 'Wiesbaden', badge: 'S Broker', from: '2026-10', to: null },
         { id: 'adesso', title: 'IT Consultant', org: 'adesso SE', orgShort: 'adesso SE', location: 'Kiel', badge: 'adesso SE', from: '2023-07', to: '2026-09' },
-        { id: 'dataport', title: 'Werkstudent Consulting Strategie & Innovation', org: 'Dataport AöR', orgShort: 'Dataport AöR', location: 'Kiel', badge: 'Dataport · Werkstudent', from: '2022-04', to: '2023-04' }
+        { id: 'dataport', title: 'Werkstudent Consulting Strategie & Innovation', org: 'Dataport AöR', orgShort: 'Dataport AöR', location: 'Kiel', badge: 'Dataport · Werkstudent', from: '2022-04', to: '2023-04', student: true }
     ],
     // Nicht filterbar, aufklappbar unter den Stationen
     studentJobs: [
