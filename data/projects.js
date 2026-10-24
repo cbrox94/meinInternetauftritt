@@ -47,5 +47,19 @@ const projects = [
         result: 'Diverse KI-Projekte erfolgreich vermittelt und in die Umsetzung gebracht.',
         team: 'Kleines Beratungsmandat mit 1–2 Beratern für die einzelnen Abrufe',
         skills: ['anforderungsmanagement', 'stakeholder', 'workshop']
+    },
+    {
+        id: 'pmo-reporting-automatisierung',
+        station: 'adesso',
+        title: 'PMO-Reporting und Automatisierung mit Power BI und Power Automate',
+        from: '2024-06', to: '2026-09',
+        context: 'Öffentliche Verwaltung, Rahmenvertrag für KI-Projekte',
+        role: 'PMO-Unterstützung',
+        summary: 'Das PMO eines Rahmenvertrags mit einem KPI-Dashboard, automatisierten Wochenberichten und einer KI-gestützten Postfachverarbeitung entlastet.',
+        situation: 'Im Rahmenvertrag laufen zahlreiche Abrufe parallel durch unterschiedliche Phasen. Das PMO braucht einen aktuellen Überblick über Kennzahlen, Abrufe, Fristen und Rechnungen – für die interne Steuerung ebenso wie für den Endkunden. Wiederkehrende Kommunikation und Datenpflege sollten möglichst automatisch laufen.',
+        tasks: 'Power-BI-Dashboard mit allen relevanten KPIs aufgebaut: Umsatz, Anzahl der Abrufe, Netzwerkpflege und Status, welcher Abruf sich in welcher Phase befindet. Darauf aufbauend eine wöchentliche Reporting-Mail an den Endkunden als Power-Automate-Flow umgesetzt – mit fälligen und bald fälligen Rechnungen sowie dem Phasenstand aller Abrufe. Ein weiterer Flow erinnert interne Projektleitende wöchentlich an anstehende Deadlines und an fehlende Angaben in der Datenbasis (MS Lists / Excel). Zusätzlich ein Flow, der alle Mails im PMO-Postfach regelbasiert oder mittels KI kategorisiert und je nach Kategorie automatisch weiterverarbeitet.',
+        result: 'Zentrale KPI-Sicht für die Steuerung, wöchentliche Berichte für Endkunde und Projektleitende ohne manuellen Aufwand und ein Postfach, dessen Eingänge automatisch sortiert und teilweise direkt bearbeitet werden.',
+        team: 'PMO des Rahmenvertrags; Datenbasis in MS Lists und Excel',
+        skills: ['reporting', 'powerbi', 'prozessauto', 'excel', 'prompt']
     }
 ];
